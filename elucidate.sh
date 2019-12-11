@@ -151,7 +151,7 @@ sel_menu() {
     # 3: Same as above, but running Enlightenment as a Wayland compositor is still considered experimental.
     # 4: Make sure E compositor is set to Software rendering (not OpenGL) and default theme is applied.
     # 5: Nuke 'Em All!
-  
+
     sleep 1 && printf "$ITA%s $OFF%s\n\n" "Or press Ctrl+C to quit."
     read INPUT
   fi
@@ -422,7 +422,7 @@ rebuild_debug() {
   # Temporary tweaks until next reboot.
   ulimit -c unlimited
   echo "/var/crash/core.%e.%p.%h.%t" | sudo tee /proc/sys/kernel/core_pattern &>/dev/null
-  
+
   # You can safely ignore the "NOTICE" message.
   if [ ! -d $ESRC/glibc-* ]; then
     cd $ESRC && apt source glibc
@@ -937,7 +937,7 @@ uninstall_e23() {
 
   rm -rf $HOME/.cache/ebuilds
   rm -rf $ESRC/glibc-*
-  
+
   mv -f $DOCDIR/installed_pkgs.txt $DOCDIR/inst_pkgs_bak.txt
   mv -f $DOCDIR/installed_manually_pkgs.txt $DOCDIR/inst_m_pkgs_bak.txt
   mv -f $DOCDIR/installed_repos.txt $DOCDIR/inst_repos_bak.txt
