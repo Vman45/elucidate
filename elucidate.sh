@@ -624,16 +624,16 @@ install_now() {
   That's All Folks!" | lolcat -a
   echo
 
-  #cp -f $DLDIR/elucidate.sh $HOME/.local/bin
+  cp -f $DLDIR/elucidate.sh $HOME/.local/bin
 }
 
 update_go() {
   clear
   printf "\n$BDG%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: RELEASE BUILD *"
 
-  #cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
-  #chmod +x $HOME/.local/bin/elucidate.sh
-  #sleep 1
+  cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
+  chmod +x $HOME/.local/bin/elucidate.sh
+  sleep 1
 
   rebuild_optim
 
@@ -660,9 +660,9 @@ wld_go() {
   clear
   printf "\n$BDY%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: WAYLAND BUILD *"
 
-  #cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
-  #chmod +x $HOME/.local/bin/elucidate.sh
-  #sleep 1
+  cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
+  chmod +x $HOME/.local/bin/elucidate.sh
+  sleep 1
 
   rebuild_wld
 
@@ -697,9 +697,9 @@ debug_go() {
   clear
   printf "\n$BDP%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: DEBUG BUILD *"
 
-  #cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
-  #chmod +x $HOME/.local/bin/elucidate.sh
-  #sleep 1
+  cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
+  chmod +x $HOME/.local/bin/elucidate.sh
+  sleep 1
 
   beep_attention
   zen_debug 2>/dev/null
