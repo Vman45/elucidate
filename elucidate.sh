@@ -66,9 +66,10 @@ RELEASE=$(lsb_release -sc)
 
 # Build dependencies, recommended(2) and script-related(3) packages.
 DEPS="aspell build-essential ccache check cmake cowsay ddd doxygen \
-faenza-icon-theme git gstreamer1.0-libav gstreamer1.0-plugins-bad \
-gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly imagemagick \
-libasound2-dev libavahi-client-dev libblkid-dev libbluetooth-dev \
+faenza-icon-theme fonts-noto git gstreamer1.0-libav \
+gstreamer1.0-plugins-bad gstreamer1.0-plugins-good \
+gstreamer1.0-plugins-ugly imagemagick libasound2-dev \
+libavahi-client-dev libblkid-dev libbluetooth-dev \
 libbullet-dev libcogl-gles2-dev libfontconfig1-dev \
 libfreetype6-dev libfribidi-dev libgeoclue-2-dev libexif-dev \
 libgif-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
@@ -82,16 +83,17 @@ libunibreak-dev libunwind-dev libvlc-dev libwebp-dev \
 libxcb-keysyms1-dev libxcursor-dev libxine2-dev libxinerama-dev \
 libxkbcommon-x11-dev libxkbfile-dev libxrandr-dev libxss-dev \
 libxtst-dev linux-tools-common linux-tools-$(uname -r) \
-lolcat manpages-dev meson mlocate ninja-build texlive-base \
-unity-greeter-badges valgrind wayland-protocols wmctrl \
-xserver-xephyr xwayland zenity"
+lolcat manpages-dev manpages-posix-dev meson mlocate ninja-build \
+texlive-base unity-greeter-badges valgrind wayland-protocols \
+wmctrl xserver-xephyr xwayland zenity"
 
 # (2|Optional) aspell, cmake, ddd, faenza-icon-theme,
-# gstreamer1.0-libav, gstreamer1.0-plugins-bad,
+# fonts-noto gstreamer1.0-libav, gstreamer1.0-plugins-bad,
 # gstreamer1.0-plugins-good, gstreamer1.0-plugins-ugly,
 # imagemagick, libexif-dev, libgeoclue-2-dev,
 # libosmesa6-dev, libscim-dev, libvlc-dev, libxine2-dev,
-# manpages-dev, texlive-base, unity-greeter-badges.
+# manpages-dev, manpages-posix-dev, texlive-base,
+# unity-greeter-badges.
 
 # (3|Required) ccache, cowsay, git, linux-tools-common,
 # linux-tools-$(uname -r), lolcat, mlocate, valgrind,
