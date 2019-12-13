@@ -320,6 +320,7 @@ build_optim() {
     make
     beep_attention
     $SMIL || true
+    sudo ldconfig
   done
 }
 
