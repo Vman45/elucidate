@@ -380,7 +380,7 @@ rebuild_optim() {
     cd $ESRC/enlightenment23/$I
 
     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
-    make distclean
+    sudo make distclean
     git reset --hard &>/dev/null
     git pull
 
