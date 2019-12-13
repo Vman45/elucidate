@@ -317,7 +317,7 @@ build_optim() {
     printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
 
     $GEN
-    make
+    make || true
     beep_attention
     $SMIL || true
     sudo ldconfig
@@ -372,6 +372,23 @@ rebuild_optim() {
     $SNIN || true
     sudo ldconfig
 
+    elap_stop
+  done
+
+  for I in $PROG_AT; do
+    elap_start
+    cd $ESRC/enlightenment23/$I
+
+    printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
+    make distclean
+    git reset --hard &>/dev/null
+    git pull
+
+    $GEN
+    make || true
+    beep_attention
+    $SMIL || true
+    sudo ldconfig
     elap_stop
   done
 }
