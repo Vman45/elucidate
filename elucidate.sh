@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ELUCIDATE.SH IS A WORK IN PROGRESS (NO SUPPORT)
+# ELUCIDATE.SH
 
 # This Bash script allows you to easily and safely download, install or update Enlightenment 0.23
 # (aka E23) on Ubuntu Focal Fossa; or helps you perform a clean uninstall of E23.
@@ -58,10 +58,13 @@ BDY="\e[1;33m" # Bold yellow text.
 BDP="\e[0;35m" # Bold purple text.
 OFF="\e[0m"    # Turn off ANSI colors and formatting.
 
+PREFIX=/usr/local
 DLDIR=$(xdg-user-dir DOWNLOAD)
 DOCDIR=$(xdg-user-dir DOCUMENTS)
 SCRFLR=$HOME/.elucidate
+GEN="./autogen.sh --prefix=$PREFIX"
 SNIN="sudo ninja -C build install"
+SMIL="sudo make install"
 RELEASE=$(lsb_release -sc)
 
 # Build dependencies, recommended(2) and script-related(3) packages.
@@ -103,18 +106,16 @@ wmctrl xserver-xephyr xwayland zenity"
 CLONEFL="git clone https://git.enlightenment.org/core/efl.git"
 CLONETY="git clone https://git.enlightenment.org/apps/terminology.git"
 CLONE23="git clone https://git.enlightenment.org/core/enlightenment.git"
-PROG_MN="efl enlightenment terminology"
+CLONEPH="git clone https://git.enlightenment.org/apps/ephoto.git"
+CLONERG="git clone https://git.enlightenment.org/apps/rage.git"
+CLONEVI="git clone https://git.enlightenment.org/apps/evisum.git"
+CLONEVE="git clone https://git.enlightenment.org/tools/enventor.git"
+
+PROG_MN="efl terminology enlightenment ephoto evisum rage"
+PROG_AT="enventor"
 
 # FUNCTIONS
 # ---------
-
-zen_warn() {
-  zenity --no-wrap --info --text "
-  This installation will take up about 1.5 GB of space.\n
-  Keep in mind that running other applications\n\
-  during the build process will affect\n\
-  compilation time.\n"
-}
 
 zen_debug() {
   zenity --no-wrap --info --text "
@@ -200,7 +201,7 @@ bin_deps() {
 
 ls_dir() {
   COUNT=$(ls -d */ | wc -l)
-  if [ $COUNT == 3 ]; then
+  if [ $COUNT == 7 ]; then
     printf "$BDG%s $OFF%s\n\n" "All programs have been downloaded successfully."
     sleep 2
   elif [ $COUNT == 0 ]; then
@@ -209,7 +210,7 @@ ls_dir() {
     beep_exit
     exit 1
   else
-    printf "\n$BDY%s %s\n" "WARNING: ONLY $COUNT OF 3 PROGRAMS HAVE BEEN DOWNLOADED!"
+    printf "\n$BDY%s %s\n" "WARNING: ONLY $COUNT OF 7 PROGRAMS HAVE BEEN DOWNLOADED!"
     printf "\n$BDY%s $OFF%s\n\n" "WAIT 12 SECONDS OR HIT CTRL+C TO QUIT."
     sleep 12
   fi
@@ -309,6 +310,16 @@ build_optim() {
     beep_attention
     $SNIN || true
     sudo ldconfig
+  done
+
+  for I in $PROG_AT; do
+    cd $ESRC/enlightenment23/$I
+    printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
+
+    $GEN
+    make
+    beep_attention
+    $SMIL || true
   done
 }
 
@@ -578,7 +589,6 @@ install_now() {
   clear
   printf "\n$BDG%s $OFF%s\n\n" "* INSTALLING ENLIGHTENMENT DESKTOP: RELEASE BUILD *"
   beep_attention
-  zen_warn 2>/dev/null
   do_bsh_alias
   bin_deps
   set_p_src
@@ -594,6 +604,12 @@ install_now() {
   $CLONETY
   echo
   $CLONE23
+  echo
+  $CLONEPH
+  echo
+  $CLONERG
+  echo
+  $CLONEVI
   echo
 
   ls_dir
@@ -889,7 +905,7 @@ uninstall_e23() {
 
   cd $HOME
   rm -rf $ESRC/enlightenment23
-  #rm -rf $SCRFLR
+  rm -rf $SCRFLR
   rm -rf .e
   rm -rf .elementary
   rm -rf .cache/efreet
