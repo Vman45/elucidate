@@ -1,29 +1,33 @@
 # elucidate.sh
 
-Make sure that the `git` and `build-install` packages are installed then clone this repository
+A neat Bash script to build and install Enlightenment 23 on **Ubuntu Focal Fossa**.
+
+## Get started
+
+Make sure that the `git` and `build-install` packages are installed then clone this repository:
 
 ```bash
 git clone https://github.com/batden/elucidate.git .elucidate
 ```
-That creates a new hidden folder named _".epanema"_ in your home directory.
+That creates a new hidden folder named _".elucidate"_ in your home directory.
 
-Please copy the file _"epanema.sh"_ from this new folder to the download folder.
+Next, copy the file _"elucidate.sh"_ from this new folder to the download folder.
 
-Now change to the download folder and make the script executable**
+Now change to the download folder and make the script executable:
 
 ```bash
-chmod +x epanema.sh
+chmod +x elucidate.sh
 ```
 
-Then issue the following command
+Then issue the following command:
 
 ```bash
-./epanema.sh
+./elucidate.sh
 ```
 
-On subsequent runs, open Terminal and simply type
+On subsequent runs, open Terminal and simply type:
 
 ```bash
-epanema.sh
+elucidate.sh
 ```
 That's it.
