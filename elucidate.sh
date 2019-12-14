@@ -519,6 +519,8 @@ rebuild_debug_mn() {
 }
 
 rebuild_debug_at() {
+  ESRC=$(cat $HOME/.cache/ebuilds/storepath)
+  export LC_ALL=C
   export CFLAGS="-O2 -ffast-math -march=native -g -ggdb3"
 
   for I in $PROG_AT; do
