@@ -62,12 +62,14 @@ PREFIX=/usr/local
 DLDIR=$(xdg-user-dir DOWNLOAD)
 DOCDIR=$(xdg-user-dir DOCUMENTS)
 SCRFLR=$HOME/.elucidate
+CONFG="./configure --prefix=$PREFIX"
 GEN="./autogen.sh --prefix=$PREFIX"
 SNIN="sudo ninja -C build install"
 SMIL="sudo make install"
 RELEASE=$(lsb_release -sc)
+ICNV=libiconv-1.16
 
-# Build dependencies, recommended(2) and script-related(3) packages.
+# Build dependencies, recommended and script-related(*) packages.
 DEPS="aspell build-essential ccache check cmake cowsay ddd doxygen \
 faenza-icon-theme fonts-noto git gstreamer1.0-libav \
 gstreamer1.0-plugins-bad gstreamer1.0-plugins-good \
@@ -90,17 +92,9 @@ lolcat manpages-dev manpages-posix-dev meson mlocate ninja-build \
 texlive-base unity-greeter-badges valgrind wayland-protocols \
 wmctrl xserver-xephyr xwayland zenity"
 
-# (2|Optional) aspell, cmake, ddd, faenza-icon-theme,
-# fonts-noto gstreamer1.0-libav, gstreamer1.0-plugins-bad,
-# gstreamer1.0-plugins-good, gstreamer1.0-plugins-ugly,
-# imagemagick, libexif-dev, libgeoclue-2-dev,
-# libosmesa6-dev, libscim-dev, libvlc-dev, libxine2-dev,
-# manpages-dev, manpages-posix-dev, texlive-base,
-# unity-greeter-badges.
-
-# (3|Required) ccache, cowsay, git, linux-tools-common,
-# linux-tools-$(uname -r), lolcat, mlocate, valgrind,
-# xserver-xephyr, wmctrl, zenity.
+# (*) ccache, cowsay, git, linux-tools-common,
+# linux-tools-$(uname -r), lolcat, mlocate,
+# valgrind, xserver-xephyr, wmctrl, zenity.
 
 # Programs from GIT repositories (latest source code).
 CLONEFL="git clone https://git.enlightenment.org/core/efl.git"
@@ -631,7 +625,29 @@ set_p_src() {
 }
 
 get_preq() {
-  printf "\n\n$BLD%s $OFF%s\n\n" "Installing rlottie..."
+  ESRC=$(cat $HOME/.cache/ebuilds/storepath)
+  cd $DLDIR
+  printf "\n\n$BLD%s $OFF%s\n\n" "Installing prerequisites..."
+  wget -c https://ftp.gnu.org/pub/gnu/libiconv/$ICNV.tar.gz
+  tar xzvf $ICNV.tar.gz -C $ESRC
+  cd $ESRC/$ICNV
+  $CONFG
+  make
+  sudo make install
+  sudo ldconfig
+  rm -rf $DLDIR/$ICNV.tar.gz
+  echo
+
+  cd $DOCDIR/sources
+  git clone https://github.com/Samsung/rlottie.git
+  cd $DOCDIR/sources/rlottie
+  meson . build/
+  meson configure -Dexample=false -Dbuildtype=release build/
+  ninja -C build/ || mng_err
+  $SNIN || mng_err
+  sudo ldconfig
+  echo
+
   cd $ESRC
   git clone https://github.com/Samsung/rlottie.git
   cd $ESRC/rlottie
