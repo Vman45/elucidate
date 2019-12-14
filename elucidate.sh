@@ -444,6 +444,23 @@ rebuild_wld() {
 
     elap_stop
   done
+
+  for I in $PROG_AT; do
+    elap_start
+    cd $ESRC/enlightenment23/$I
+
+    printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
+    sudo make distclean
+    git reset --hard &>/dev/null
+    git pull
+
+    $GEN
+    make || true
+    beep_attention
+    $SMIL || true
+    sudo ldconfig
+    elap_stop
+  done
 }
 
 rebuild_debug() {
