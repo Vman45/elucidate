@@ -463,7 +463,7 @@ rebuild_wld() {
   done
 }
 
-rebuild_debug() {
+rebuild_debug_mn() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   export LC_ALL=C
 
@@ -515,6 +515,27 @@ rebuild_debug() {
 
     $SNIN || true
     sudo ldconfig
+  done
+}
+
+rebuild_debug_at() {
+  export CFLAGS="-O2 -ffast-math -march=native -g -ggdb3"
+
+  for I in $PROG_AT; do
+    elap_start
+    cd $ESRC/enlightenment23/$I
+
+    printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
+    sudo make distclean
+    git reset --hard &>/dev/null
+    git pull
+
+    $GEN
+    make || true
+    beep_attention
+    $SMIL || true
+    sudo ldconfig
+    elap_stop
   done
 }
 
@@ -756,7 +777,8 @@ debug_go() {
 
   beep_attention
   zen_debug 2>/dev/null
-  rebuild_debug
+  rebuild_debug_mn
+  rebuild_debug_at
   echo
 
   # For serious debugging, please refer to the following documents.
