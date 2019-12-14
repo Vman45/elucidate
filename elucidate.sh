@@ -638,16 +638,6 @@ get_preq() {
   rm -rf $DLDIR/$ICNV.tar.gz
   echo
 
-  cd $DOCDIR/sources
-  git clone https://github.com/Samsung/rlottie.git
-  cd $DOCDIR/sources/rlottie
-  meson . build/
-  meson configure -Dexample=false -Dbuildtype=release build/
-  ninja -C build/ || mng_err
-  $SNIN || mng_err
-  sudo ldconfig
-  echo
-
   cd $ESRC
   git clone https://github.com/Samsung/rlottie.git
   cd $ESRC/rlottie
