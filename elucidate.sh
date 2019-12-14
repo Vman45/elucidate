@@ -998,7 +998,7 @@ uninstall_e23() {
   rm -rf .config/terminology
 
   find /usr/local/share/locale/*/LC_MESSAGES 2>/dev/null | while read -r I; do
-    echo "$I" | xargs sudo rm -rf $(grep -E 'efl|enlightenment|terminology')
+    echo "$I" | xargs sudo rm -rf $(grep -E 'efl|enlightenment|enventor|ephoto|libiconv|terminology')
   done
 
   if [ -d $HOME/.ccache ]; then
