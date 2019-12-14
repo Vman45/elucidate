@@ -820,6 +820,13 @@ debug_go() {
   esac
 }
 
+remov_eprog_at() {
+  for I in $PROG_AT; do
+    sudo make uninstall
+    make maintainer-clean
+  done
+}
+
 remov_eprog_mn() {
   for I in $PROG_MN; do
     sudo ninja -C build uninstall
