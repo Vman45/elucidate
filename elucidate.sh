@@ -971,6 +971,8 @@ uninstall_e23() {
 
   cd /usr/local/share/applications
   sudo sed -i '/enlightenment_filemanager/d' mimeinfo.cache
+  sudo sed -i '/ephoto/d' mimeinfo.cache
+  sudo sed -i '/rage/d' mimeinfo.cache
 
   cd /usr/local/share/icons
   sudo rm -rf Enlightenment-X
