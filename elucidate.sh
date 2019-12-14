@@ -831,19 +831,32 @@ remov_preq() {
   if [ -d $ESRC/rlottie ]; then
     echo
     beep_question
-    read -t 12 -p "Remove rlottie? [Y/n] " answer
+    read -t 12 -p "Remove libiconv and rlottie? [Y/n] " answer
     case $answer in
       [yY])
         echo
+        cd $ESRC/$ICNV
+        sudo make uninstall
+        make maintainer-clean
+        cd .. && rm -rf $ESRC/$ICNV
+        sudo rm -rf /usr/local/bin/iconv
+        echo
+
         cd $ESRC/rlottie
         sudo ninja -C build uninstall
         cd .. && rm -rf rlottie
         echo
         ;;
       [nN])
-        printf "\n%s\n\n" "(do not remove rlottie... OK)"
+        printf "\n%s\n\n" "(do not remove prerequisites... OK)"
         ;;
       *)
+        cd $ESRC/$ICNV
+        sudo make uninstall
+        make maintainer-clean
+        cd .. && rm -rf $ESRC/$ICNV
+        sudo rm -rf /usr/local/bin/iconv
+
         echo
         cd $ESRC/rlottie
         sudo ninja -C build uninstall
@@ -886,6 +899,7 @@ uninstall_e23() {
   sudo rm -rf eina*
   sudo rm -rf efl*
   sudo rm -rf elua*
+  sudo rm -rf enventor*
   sudo rm -rf eolian*
   sudo rm -rf emotion*
   sudo rm -rf evas*
@@ -906,6 +920,7 @@ uninstall_e23() {
   sudo rm -rf elementary*
   sudo rm -rf emotion*
   sudo rm -rf enlightenment*
+  sudo rm -rf enventor*
   sudo rm -rf ethumb*
   sudo rm -rf evas*
   sudo rm -rf x86*
@@ -944,10 +959,13 @@ uninstall_e23() {
   sudo rm -rf embryo*
   sudo rm -rf emotion*
   sudo rm -rf enlightenment*
+  sudo rm -rf enventor*
   sudo rm -rf eo*
   sudo rm -rf eolian*
+  sudo rm -rf ephoto*
   sudo rm -rf ethumb*
   sudo rm -rf evas*
+  sudo rm -rf rage*
   sudo rm -rf terminology*
   sudo rm -rf wayland-sessions*
 
