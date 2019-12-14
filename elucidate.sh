@@ -997,6 +997,8 @@ uninstall_e23() {
   rm -rf .cache/ephoto
   rm -rf .cache/evas_gl_common_caches
   rm -rf .cache/rage
+  rm -rf .config/ephoto
+  rm -rf .config/rage
   rm -rf .config/terminology
 
   find /usr/local/share/locale/*/LC_MESSAGES 2>/dev/null | while read -r I; do
