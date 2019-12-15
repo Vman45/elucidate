@@ -113,15 +113,15 @@ beep_ok() {
 sel_menu() {
   if [ $INPUT -lt 1 ]; then
     echo
-    printf "1. $BDG%s $OFF%s\n\n" "
+    printf "1 $BDG%s $OFF%s\n\n" "
     INSTALL Enlightenment 23 from the master branch"
-    printf "2. $BDG%s $OFF%s\n\n" "
+    printf "2 $BDG%s $OFF%s\n\n" "
     Update and REBUILD Enlightenment 23"
-    printf "3. $BDY%s $OFF%s\n\n" "
+    printf "3 $BDY%s $OFF%s\n\n" "
     Update and rebuild E23 with WAYLAND support"
-    printf "4. $BDP%s $OFF%s\n\n" "
+    printf "4 $BDP%s $OFF%s\n\n" "
     Update and rebuild E23 for DEBUGGING purposes"
-    printf "5. $BDR%s $OFF%s\n\n" "
+    printf "5 $BDR%s $OFF%s\n\n" "
     UNINSTALL all Enlightenment 23 programs"
 
     # Hints.
