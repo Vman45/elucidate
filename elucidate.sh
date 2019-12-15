@@ -49,7 +49,7 @@ SMIL="sudo make install"
 RELEASE=$(lsb_release -sc)
 ICNV=libiconv-1.16
 
-# Build dependencies, recommended and script-related(*) packages.
+# Build dependencies, recommended and script-related packages.
 DEPS="aspell build-essential ccache check cmake cowsay ddd doxygen \
 faenza-icon-theme fonts-noto git gstreamer1.0-libav \
 gstreamer1.0-plugins-bad gstreamer1.0-plugins-good \
@@ -72,11 +72,7 @@ lolcat manpages-dev manpages-posix-dev meson mlocate ninja-build \
 texlive-base unity-greeter-badges valgrind wayland-protocols \
 wmctrl xserver-xephyr xwayland zenity"
 
-# (*) ccache, cowsay, git, linux-tools-common,
-# linux-tools-$(uname -r), lolcat, mlocate,
-# valgrind, xserver-xephyr, wmctrl, zenity.
-
-# Programs from GIT repositories (latest source code).
+# Latest source code from GIT repositories.
 CLONEFL="git clone https://git.enlightenment.org/core/efl.git"
 CLONETY="git clone https://git.enlightenment.org/apps/terminology.git"
 CLONE23="git clone https://git.enlightenment.org/core/enlightenment.git"
@@ -233,8 +229,7 @@ e_tokens() {
 
   TOKEN=$(wc -l <$HOME/.cache/ebuilds/etokens)
   if [ "$TOKEN" -gt 3 ]; then
-    echo
-    # Questions: Enter either y or n, or press Enter to accept the default values.
+    echo.
     beep_question
     read -t 12 -p "Do you want to back up your E23 settings now? [y/N] " answer
     case $answer in
