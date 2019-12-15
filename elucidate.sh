@@ -80,9 +80,11 @@ CLONEPH="git clone https://git.enlightenment.org/apps/ephoto.git"
 CLONERG="git clone https://git.enlightenment.org/apps/rage.git"
 CLONEVI="git clone https://git.enlightenment.org/apps/evisum.git"
 CLONEVE="git clone https://git.enlightenment.org/tools/enventor.git"
+CLONECL="git clone https://git.enlightenment.org/tools/clouseau.git"
 
 PROG_MN="efl terminology enlightenment ephoto evisum rage"
 PROG_AT="enventor"
+PROG_CK="clouseau"
 
 # FUNCTIONS
 # ---------
@@ -302,6 +304,17 @@ build_optim() {
     $SMIL || true
     sudo ldconfig
   done
+
+  for I in $PROG_CK; do
+    cd $ESRC/enlightenment23/$I
+    printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
+
+    $GEN
+    make || true
+    beep_attention
+    $SMIL || true
+    sudo ldconfig
+  done
 }
 
 rebuild_optim() {
@@ -371,6 +384,17 @@ rebuild_optim() {
     $SMIL || true
     sudo ldconfig
     elap_stop
+  done
+
+  for I in $PROG_CK; do
+    cd $ESRC/enlightenment23/$I
+    printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
+
+    $GEN
+    make || true
+    beep_attention
+    $SMIL || true
+    sudo ldconfig
   done
 }
 
@@ -442,6 +466,17 @@ rebuild_wld() {
     sudo ldconfig
     elap_stop
   done
+
+  for I in $PROG_CK; do
+    cd $ESRC/enlightenment23/$I
+    printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
+
+    $GEN
+    make || true
+    beep_attention
+    $SMIL || true
+    sudo ldconfig
+  done
 }
 
 rebuild_debug_mn() {
@@ -505,6 +540,29 @@ rebuild_debug_at() {
   export CFLAGS="-O2 -ffast-math -march=native -g -ggdb"
 
   for I in $PROG_AT; do
+    elap_start
+    cd $ESRC/enlightenment23/$I
+
+    printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
+    sudo make distclean &>/dev/null
+    git reset --hard &>/dev/null
+    git pull
+
+    $GEN
+    make || true
+    beep_attention
+    $SMIL || true
+    sudo ldconfig
+    elap_stop
+  done
+}
+
+rebuild_debug_ck() {
+  ESRC=$(cat $HOME/.cache/ebuilds/storepath)
+  export LC_ALL=C
+  export CFLAGS="-O2 -ffast-math -march=native -g -ggdb"
+
+  for I in $PROG_CK; do
     elap_start
     cd $ESRC/enlightenment23/$I
 
@@ -665,6 +723,8 @@ install_now() {
   echo
   $CLONEVE
   echo
+  $CLONECL
+  echo
 
   ls_dir
 
@@ -778,6 +838,7 @@ debug_go() {
   zen_debug 2>/dev/null
   rebuild_debug_mn
   rebuild_debug_at
+  rebuild_debug_ck
   echo
 
   # For serious debugging, please refer to the following documents.
@@ -815,6 +876,13 @@ debug_go() {
 }
 
 remov_eprog_at() {
+  for I in $PROG_AT; do
+    sudo make uninstall
+    make maintainer-clean
+  done
+}
+
+remov_eprog_ck() {
   for I in $PROG_AT; do
     sudo make uninstall
     make maintainer-clean
@@ -878,6 +946,10 @@ uninstall_e23() {
 
   for I in $PROG_AT; do
     cd $ESRC/enlightenment23/$I && remov_eprog_at
+  done
+
+  for I in $PROG_CK; do
+    cd $ESRC/enlightenment23/$I && remov_eprog_ck
   done
 
   for I in $PROG_MN; do
