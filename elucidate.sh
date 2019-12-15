@@ -17,12 +17,8 @@
 # Open Terminal and simply type elucidate.sh
 
 # ELUCIDATE.SH is written by similar@orange.fr and carlasensa@sfr.fr,
-# feel free to use this script as you see fit.
-# Before reporting an issue, make sure you are using the latest version.
-
-# Please consider sending us a tip via https://www.paypal.me/PJGuillaumie
-# or starring the repository to show your support.
-# Cheers!
+# feel free to use this script as you see fit. Please consider
+# starring the repository to show your support.
 
 # Github repositories: https://github.com/batden
 # Screenshots: https://www.enlightenment.org/ss/
