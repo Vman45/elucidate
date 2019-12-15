@@ -349,7 +349,7 @@ rebuild_optim() {
     cd $ESRC/enlightenment23/$I
 
     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
-    sudo make distclean
+    sudo make distclean &>/dev/null
     git reset --hard &>/dev/null
     git pull
 
@@ -419,7 +419,7 @@ rebuild_wld() {
     cd $ESRC/enlightenment23/$I
 
     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
-    sudo make distclean
+    sudo make distclean &>/dev/null
     git reset --hard &>/dev/null
     git pull
 
@@ -497,7 +497,7 @@ rebuild_debug_at() {
     cd $ESRC/enlightenment23/$I
 
     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
-    sudo make distclean
+    sudo make distclean &>/dev/null
     git reset --hard &>/dev/null
     git pull
 
