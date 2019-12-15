@@ -9,10 +9,9 @@
 # To execute the script:
 
 # First time.
-# 1. Open Terminal and uncheck "Limit scrollback to" in Preferences.
-# 2. Change (cd) to the download folder
-# 3. Make this script executable with chmod +x
-# 4. Then type ./elucidate.sh
+# Open Terminal and uncheck "Limit scrollback to" in Preferences.
+# Change to the download folder and make the script executable,
+# then type ./elucidate.sh
 
 # Subsequent runs.
 # Open Terminal and simply type elucidate.sh
