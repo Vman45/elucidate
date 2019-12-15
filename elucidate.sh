@@ -490,7 +490,7 @@ rebuild_debug_mn() {
 rebuild_debug_at() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   export LC_ALL=C
-  export CFLAGS="-O2 -ffast-math -march=native -g -ggdb3"
+  export CFLAGS="-O2 -ffast-math -march=native -g -ggdb"
 
   for I in $PROG_AT; do
     elap_start
@@ -858,6 +858,10 @@ uninstall_e23() {
   printf "\n\n$BDR%s %s\n\n" "* UNINSTALLING ENLIGHTENMENT DESKTOP *"
 
   cd $HOME
+
+  for I in $PROG_AT; do
+    cd $ESRC/enlightenment23/$I && remov_eprog_at
+  done
 
   for I in $PROG_MN; do
     cd $ESRC/enlightenment23/$I && remov_eprog_mn
