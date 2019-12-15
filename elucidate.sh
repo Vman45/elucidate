@@ -17,16 +17,15 @@
 # Open Terminal and simply type elucidate.sh
 
 # ELUCIDATE.SH is written by similar@orange.fr and carlasensa@sfr.fr,
-# feel free to use this script as you see fit. Please consider
-# starring the repository to show your support.
+# feel free to use this script as you see fit.
 
 # Github repositories: https://github.com/batden
 # Screenshots: https://www.enlightenment.org/ss/
 
 # Script debugging.
-# export PS4='+ $LINENO: '
-# export LC_ALL=C
-# set -vx
+#export PS4='+ $LINENO: '
+#export LC_ALL=C
+#set -vx
 
 # LOCAL VARIABLES
 # ---------------
