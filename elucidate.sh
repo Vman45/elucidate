@@ -650,6 +650,8 @@ install_now() {
   echo
   $CLONEVI
   echo
+  $CLONEVE
+  echo
 
   ls_dir
 
