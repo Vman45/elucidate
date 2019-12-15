@@ -18,8 +18,8 @@
 
 # ELUCIDATE.SH is written by similar@orange.fr and carlasensa@sfr.fr,
 # feel free to use this script as you see fit.
-
 # Github repositories: https://github.com/batden
+
 # Screenshots: https://www.enlightenment.org/ss/
 
 # Script debugging.
