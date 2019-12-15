@@ -2,34 +2,20 @@
 
 # ELUCIDATE.SH
 
-# This Bash script allows you to easily and safely download, install or update Enlightenment 0.23
-# (aka E23) on Ubuntu Focal Fossa; or helps you perform a clean uninstall of E23.
+# This Bash script allows you to easily and safely install Enlightenment 23
+# along with E-apps aimed at advanced users on Ubuntu Focal Fossa;
+# or helps you perform a clean uninstall of E23.
 
 # To execute the script:
 
 # First time.
-# 1. Open Terminal and uncheck "Limit scrollback to" in Preferences > Profile Name > Scrolling
+# 1. Open Terminal and uncheck "Limit scrollback to" in Preferences.
 # 2. Change (cd) to the download folder
 # 3. Make this script executable with chmod +x
 # 4. Then type ./elucidate.sh
 
 # Subsequent runs.
 # Open Terminal and simply type elucidate.sh
-
-# Heads up!
-# Enlightenment programs installed from .deb packages or tarballs will inevitably conflict with
-# E23 programs compiled from Git repositories——do not mix source code with pre-built binaries!
-# Please remove thoroughly any previous installation of EFL/Enlightenment/E-Apps (track down
-# and delete any leftover files) before running ELUCIDATE.SH.
-
-# Once installed, you can update your shiny new Enlightenment desktop whenever you want to.
-# However, because software gains entropy over time (performance regression, unexpected
-# behavior... this is especially true when dealing with source code), we highly recommend
-# doing a complete uninstall and reinstall of E23 every two weeks or so for an optimal
-# user experience.
-
-# NOTE that you need to uninstall all E23 programs *before* upgrading your current system
-# to a newer version of Ubuntu.
 
 # ELUCIDATE.SH is written by similar@orange.fr and carlasensa@sfr.fr,
 # feel free to use this script as you see fit.
@@ -75,8 +61,8 @@ faenza-icon-theme fonts-noto git gstreamer1.0-libav \
 gstreamer1.0-plugins-bad gstreamer1.0-plugins-good \
 gstreamer1.0-plugins-ugly imagemagick libasound2-dev \
 libavahi-client-dev libblkid-dev libbluetooth-dev \
-libbullet-dev libcogl-gles2-dev libfontconfig1-dev \
-libfreetype6-dev libfribidi-dev libgeoclue-2-dev libexif-dev \
+libbullet-dev libcogl-gles2-dev libexif-dev libfontconfig1-dev \
+libfreetype6-dev libfribidi-dev libgeoclue-2-dev \
 libgif-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
 libharfbuzz-dev libibus-1.0-dev libinput-dev libjpeg-dev \
 libluajit-5.1-dev liblz4-dev libmount-dev libopenjp2-7-dev \
