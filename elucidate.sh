@@ -182,7 +182,7 @@ bin_deps() {
 
 ls_dir() {
   COUNT=$(ls -d */ | wc -l)
-  if [ $COUNT == 7 ]; then
+  if [ $COUNT == 8 ]; then
     printf "$BDG%s $OFF%s\n\n" "All programs have been downloaded successfully."
     sleep 2
   elif [ $COUNT == 0 ]; then
@@ -191,7 +191,7 @@ ls_dir() {
     beep_exit
     exit 1
   else
-    printf "\n$BDY%s %s\n" "WARNING: ONLY $COUNT OF 7 PROGRAMS HAVE BEEN DOWNLOADED!"
+    printf "\n$BDY%s %s\n" "WARNING: ONLY $COUNT OF 8 PROGRAMS HAVE BEEN DOWNLOADED!"
     printf "\n$BDY%s $OFF%s\n\n" "WAIT 12 SECONDS OR HIT CTRL+C TO QUIT."
     sleep 12
   fi
