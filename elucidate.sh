@@ -125,9 +125,12 @@ sel_menu() {
     UNINSTALL all Enlightenment 23 programs"
 
     # Hints.
-    # 1/2: A feature-rich, decently optimized build; however, occasionally technical glitches do happen...
-    # 3: Same as above, but running Enlightenment as a Wayland compositor is still considered experimental.
-    # 4: Make sure E compositor is set to Software rendering (not OpenGL) and default theme is applied.
+    # 1/2: A feature-rich, decently optimized build; however, occasionally
+    # technical glitches do happen...
+    # 3: Same as above, but running Enlightenment as a Wayland compositor
+    # is still considered experimental.
+    # 4: Make sure E compositor is set to Software rendering (not OpenGL)
+    # and default theme is applied.
     # 5: Nuke 'Em All!
 
     sleep 1 && printf "$ITA%s $OFF%s\n\n" "Or press Ctrl+C to quit."
@@ -155,8 +158,9 @@ bin_deps() {
 
   # Backup list of manually installed packages.
   if [ ! -f $DOCDIR/installed_manually_pkgs.txt ]; then
-    echo $(comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz \
-      | sed -n 's/^Package: //p' | sort -u)) >$DOCDIR/installed_manually_pkgs.txt
+    echo $(comm -23 <(apt-mark showmanual \
+      | sort -u) <(gzip -dc /var/log/installer/initial-status.gz \
+        | sed -n 's/^Package: //p' | sort -u)) >$DOCDIR/installed_manually_pkgs.txt
   fi
 
   # Backup list of currently installed repositories.
@@ -215,7 +219,8 @@ elap_stop() {
 }
 
 e_bkp() {
-  # Timestamp: See man date to convert epoch to human-readable date or visit https://www.epochconverter.com/
+  # Timestamp: See man date to convert epoch to human-readable date or
+  # visit https://www.epochconverter.com/
   TSTAMP=$(date +%s)
   mkdir -p $DOCDIR/ebackups
 
@@ -265,8 +270,9 @@ build_optim() {
     case $I in
       efl)
         meson . build
-        meson configure -Dnative-arch-optimization=true -Dharfbuzz=true -Dbindings=luajit,cxx -Dbuild-tests=false \
-          -Dbuild-examples=false -Devas-loaders-disabler=json -Dbuildtype=release build
+        meson configure -Dnative-arch-optimization=true -Dharfbuzz=true -Dbindings=luajit,cxx \
+          -Dbuild-tests=false -Dbuild-examples=false -Devas-loaders-disabler=json \
+          -Dbuildtype=release build
         ninja -C build || mng_err
         ;;
       enlightenment)
@@ -327,8 +333,9 @@ rebuild_optim() {
     case $I in
       efl)
         sudo chown $USER build/.ninja*
-        meson configure -Dnative-arch-optimization=true -Dharfbuzz=true -Dbindings=luajit,cxx -Dbuild-tests=false \
-          -Dbuild-examples=false -Devas-loaders-disabler=json -Dbuildtype=release build
+        meson configure -Dnative-arch-optimization=true -Dharfbuzz=true -Dbindings=luajit,cxx \
+          -Dbuild-tests=false -Dbuild-examples=false -Devas-loaders-disabler=json \
+          -Dbuildtype=release build
         ninja -C build || mng_err
         ;;
       enlightenment)
@@ -396,9 +403,9 @@ rebuild_wld() {
     case $I in
       efl)
         sudo chown $USER build/.ninja*
-        meson configure -Dnative-arch-optimization=true -Dharfbuzz=true -Dbindings=luajit,cxx -Ddrm=true -Dwl=true \
-          -Dopengl=es-egl -Dbuild-tests=false -Dbuild-examples=false -Devas-loaders-disabler=json \
-          -Dbuildtype=release build
+        meson configure -Dnative-arch-optimization=true -Dharfbuzz=true -Dbindings=luajit,cxx \
+          -Ddrm=true -Dwl=true -Dopengl=es-egl -Dbuild-tests=false -Dbuild-examples=false \
+          -Devas-loaders-disabler=json -Dbuildtype=release build
         ninja -C build || mng_err
         ;;
       enlightenment)
@@ -596,7 +603,8 @@ set_p_src() {
   echo
   beep_attention
   # Do not append a trailing slash (/) to the end of the path prefix.
-  read -p "Please enter a path to the Enlightenment source folders (e.g. /home/lucas or /home/lucas/testing): " mypath
+  read -p "Please enter a path to the Enlightenment source folders \
+  (e.g. /home/lucas or /home/lucas/testing): " mypath
   mkdir -p "$mypath"/sources
   ESRC="$mypath"/sources
   echo $ESRC >$HOME/.cache/ebuilds/storepath
@@ -678,7 +686,8 @@ install_now() {
   beep_ok
 
   printf "\n\n$BDY%s %s" "Initial setup wizard tips:"
-  printf "\n$BDY%s %s" "'Update checking' —— you can disable this feature because it serves no useful purpose."
+  printf "\n$BDY%s %s" "'Update checking' \
+  —— you can disable this feature because it serves no useful purpose."
   printf "\n$BDY%s $OFF%s\n\n\n" "'Network management support' —— Connman is not needed."
   # Enlightenment adds three shortcut icons (namely home.desktop, root.desktop and tmp.desktop)
   # to your Ubuntu Desktop, you can safely delete them.
@@ -782,10 +791,12 @@ debug_go() {
       printf "\n$BDP%s $OFF%s\n" "You may need to enter q to end the debugging session (quit gdb)."
       sleep 6
 
-      # Run ./xdebug.sh --help for options (e.g. append "--dbg-mode=d" to the command below if you want to use DDD).
+      # Run ./xdebug.sh --help for options (e.g. append "--dbg-mode=d" to the command below
+      # if you want to use DDD).
       cd $ESRC/enlightenment23/enlightenment && ./xdebug.sh
       printf "\n$BDP%s %s" "Please check /var/crash for core dumps,"
-      printf "\n$BDP%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home folder."
+      printf "\n$BDP%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your \
+      home directory."
       ;;
     [nN])
       printf "\n%s\n\n" "(do not run Enlightenment.. OK)"
@@ -797,7 +808,8 @@ debug_go() {
 
       cd $ESRC/enlightenment23/enlightenment && ./xdebug.sh
       printf "\n$BDP%s %s" "Please check /var/crash for core dumps,"
-      printf "\n$BDP%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home folder."
+      printf "\n$BDP%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your \
+      home directory."
       ;;
   esac
 }
@@ -996,7 +1008,8 @@ uninstall_e23() {
   rm -rf .config/terminology
 
   find /usr/local/share/locale/*/LC_MESSAGES 2>/dev/null | while read -r I; do
-    echo "$I" | xargs sudo rm -rf $(grep -E 'efl|enlightenment|enventor|ephoto|libiconv|terminology')
+    echo "$I" \
+      | xargs sudo rm -rf $(grep -E 'efl|enlightenment|enventor|ephoto|libiconv|terminology')
   done
 
   if [ -d $HOME/.ccache ]; then
