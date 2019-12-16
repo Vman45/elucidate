@@ -4,7 +4,7 @@ A neat Bash script to build and install Enlightenment 23 on **Ubuntu Focal Fossa
 
 ## Get started
 
-Make sure that the `git` and `build-install` packages are installed, then clone this repository:
+First, clone this repository:
 
 ```bash
 git clone https://github.com/batden/elucidate.git .elucidate
