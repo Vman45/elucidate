@@ -242,7 +242,7 @@ e_tokens() {
 
   TOKEN=$(wc -l <$HOME/.cache/ebuilds/etokens)
   if [ "$TOKEN" -gt 3 ]; then
-    echo.
+    echo
     beep_question
     read -t 12 -p "Do you want to back up your E23 settings now? [y/N] " answer
     case $answer in
