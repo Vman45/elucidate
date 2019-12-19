@@ -1,6 +1,6 @@
-# elucidate.sh
+# elucidate.sh is a work in progress!
 
-A neat Bash script to build and install Enlightenment 23 on **Ubuntu Focal Fossa**.
+Bash script to build and install Enlightenment 23 on **Ubuntu Focal Fossa**.
 
 Intended audience: ~~beginner~~ - ~~intermediate~~ - advanced
 
