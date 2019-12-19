@@ -1,4 +1,4 @@
-# elucidate.sh is a work in progress!
+# elucidate.sh
 
 Bash script to build and install Enlightenment 23 on **Ubuntu Focal Fossa**.
 
