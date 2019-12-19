@@ -13,13 +13,9 @@ git clone https://github.com/batden/elucidate.git .elucidate
 ```
 That creates a new hidden folder named _".elucidate"_ in your home directory.
 
-Next, copy the file _"elucidate.sh"_ from this new folder to the download folder.
+Copy the file _"elucidate.sh"_ from this new folder to the download folder.
 
-Now change to the download folder and make the script executable:
-
-```bash
-chmod +x elucidate.sh
-```
+Now change to the download folder and make the script executable.
 
 Then issue the following command:
 
