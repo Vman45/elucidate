@@ -2,6 +2,8 @@
 
 A neat Bash script to build and install Enlightenment 23 on **Ubuntu Focal Fossa**.
 
+Intended audience: ~~Beginner~~ - ~~Intermediate~~ - advanced
+
 ## Get started
 
 First, clone this repository:
