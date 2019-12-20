@@ -68,9 +68,9 @@ libunibreak-dev libunwind-dev libvlc-dev libwebp-dev \
 libxcb-keysyms1-dev libxcursor-dev libxine2-dev libxinerama-dev \
 libxkbcommon-x11-dev libxkbfile-dev libxrandr-dev libxss-dev \
 libxtst-dev linux-tools-common linux-tools-$(uname -r) \
-lolcat manpages-dev manpages-posix-dev meson mlocate ninja-build \
-texlive-base unity-greeter-badges valgrind wayland-protocols \
-wmctrl xserver-xephyr xwayland zenity"
+lolcat manpages-dev manpages-posix-dev meson mlocate mono-mcs \
+ninja-build texlive-base unity-greeter-badges valgrind \
+wayland-protocols wmctrl xserver-xephyr xwayland zenity"
 
 # Latest source code from GIT repositories.
 CLONEFL="git clone https://git.enlightenment.org/core/efl.git"
@@ -273,7 +273,7 @@ build_optim() {
     case $I in
       efl)
         meson . build
-        meson configure -Dnative-arch-optimization=true -Dharfbuzz=true -Dbindings=luajit,cxx \
+        meson configure -Dnative-arch-optimization=true -Dharfbuzz=true -Dbindings=luajit,cxx,mono \
           -Dbuild-tests=false -Dbuild-examples=false -Devas-loaders-disabler=json \
           -Dbuildtype=release build
         ninja -C build || mng_err
@@ -347,7 +347,7 @@ rebuild_optim() {
     case $I in
       efl)
         sudo chown $USER build/.ninja*
-        meson configure -Dnative-arch-optimization=true -Dharfbuzz=true -Dbindings=luajit,cxx \
+        meson configure -Dnative-arch-optimization=true -Dharfbuzz=true -Dbindings=luajit,cxx,mono \
           -Dbuild-tests=false -Dbuild-examples=false -Devas-loaders-disabler=json \
           -Dbuildtype=release build
         ninja -C build || mng_err
@@ -423,7 +423,7 @@ rebuild_wld() {
     case $I in
       efl)
         sudo chown $USER build/.ninja*
-        meson configure -Dnative-arch-optimization=true -Dharfbuzz=true -Dbindings=luajit,cxx \
+        meson configure -Dnative-arch-optimization=true -Dharfbuzz=true -Dbindings=luajit,cxx,mono \
           -Ddrm=true -Dwl=true -Dopengl=es-egl -Dbuild-tests=false -Dbuild-examples=false \
           -Devas-loaders-disabler=json -Dbuildtype=release build
         ninja -C build || mng_err
