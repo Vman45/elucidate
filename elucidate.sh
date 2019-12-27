@@ -119,7 +119,7 @@ sel_menu() {
     INSTALL Enlightenment 23 from the master branch"
     printf "#2 $BDG%s $OFF%s\n\n" "
     Update and REBUILD Enlightenment 23"
-    printf "#3. $BDG%s $OFF%s\n\n" "
+    printf "#3 $BDG%s $OFF%s\n\n" "
     Update and rebuild E23 in RELEASE mode"
     printf "#4 $BDY%s $OFF%s\n\n" "
     Update and rebuild E23 with WAYLAND support"
