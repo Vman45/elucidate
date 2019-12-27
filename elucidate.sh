@@ -751,8 +751,8 @@ install_now() {
   echo
   $CLONEVE
   echo
-  # $CLONECL
-  # echo
+  ## $CLONECL
+  ## echo
 
   ls_dir
 
