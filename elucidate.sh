@@ -303,16 +303,16 @@ build_plain() {
     sudo ldconfig
   done
 
-  # for I in $PROG_CK; do
-  #   cd $ESRC/e23/$I
-  #   printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
-  #
-  #   mkdir build && cd build
-  #   cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
-  #   make || true
-  #   beep_attention
-  #   $SMIL || true
-  # done
+  ## for I in $PROG_CK; do
+  ##   cd $ESRC/e23/$I
+  ##   printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
+  ##
+  ##   mkdir build && cd build
+  ##   cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
+  ##   make || true
+  ##   beep_attention
+  ##   $SMIL || true
+  ## done
 }
 
 rebuild_plain() {
@@ -433,11 +433,11 @@ rebuild_optim() {
     elap_stop
   done
 
-  #   for I in $PROG_CK; do
-  #     cd $ESRC/e23/$I
-  #     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
-  # # TODO...
-  #   done
+  ##   for I in $PROG_CK; do
+  ##     cd $ESRC/e23/$I
+  ##     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
+  ## # TODO...
+  ##   done
 }
 
 rebuild_wld() {
@@ -892,7 +892,7 @@ debug_go() {
   zen_debug 2>/dev/null
   rebuild_debug_mn
   rebuild_debug_at
-  # rebuild_debug_ck
+  ## rebuild_debug_ck
   echo
 
   # For serious debugging, please refer to the following documents.
