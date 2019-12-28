@@ -51,7 +51,7 @@ ICNV=libiconv-1.16
 
 # Build dependencies, recommended and script-related packages.
 DEPS="aspell build-essential ccache check cmake cowsay ddd doxygen \
-faenza-icon-theme fonts-noto git gstreamer1.0-libav \
+faenza-icon-theme fonts-noto gstreamer1.0-libav \
 gstreamer1.0-plugins-bad gstreamer1.0-plugins-good \
 gstreamer1.0-plugins-ugly imagemagick libasound2-dev \
 libavahi-client-dev libblkid-dev libbluetooth-dev \
