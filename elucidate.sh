@@ -633,7 +633,7 @@ do_tests() {
     exit 1
   fi
 
-  which git &>/dev/null || sudo apt install git
+  which git &>/dev/null || sudo apt install --yes git
   echo
 
   # Users of VirtualBox: Comment out the following lines if you get unexpected network errors.
