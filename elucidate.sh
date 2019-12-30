@@ -50,8 +50,8 @@ RELEASE=$(lsb_release -sc)
 ICNV=libiconv-1.16
 
 # Build dependencies, recommended and script-related packages.
-DEPS="aspell build-essential ccache check cmake cowsay ddd doxygen \
-faenza-icon-theme fonts-noto gstreamer1.0-libav \
+DEPS="aspell build-essential ccache check cmake cowsay ddd \
+doxygen faenza-icon-theme fonts-noto gstreamer1.0-libav \
 gstreamer1.0-plugins-bad gstreamer1.0-plugins-good \
 gstreamer1.0-plugins-ugly imagemagick libasound2-dev \
 libavahi-client-dev libblkid-dev libbluetooth-dev \
@@ -525,7 +525,7 @@ rebuild_debug_mn() {
   echo "/var/crash/core.%e.%p.%h.%t" | sudo tee /proc/sys/kernel/core_pattern &>/dev/null
 
   # You can safely ignore the "NOTICE" message.
-  if [ ! -d $ESRC/glibc-* ]; then
+  if [ ! -e $ESRC/glibc-* ]; then
     cd $ESRC && apt source glibc
     rm -rf glibc_*
     sudo updatedb
@@ -645,19 +645,9 @@ do_tests() {
     exit 1
   fi
 
-  if [ ! -d $SCRFLR ]; then
-    printf "\n$BDR%s $OFF%s\n\n" "ELUCIDATE FOLDER NOT FOUND!"
-    beep_exit
-    exit 1
-  fi
+  [ ! -d $HOME/.local/bin ] && mkdir -p $HOME/.local/bin
 
-  if [ ! -d $HOME/.local/bin ]; then
-    mkdir -p $HOME/.local/bin
-  fi
-
-  if [ ! -d $HOME/.cache/ebuilds ]; then
-    mkdir -p $HOME/.cache/ebuilds
-  fi
+  [ ! -d $HOME/.cache/ebuilds ] && mkdir -p $HOME/.cache/ebuilds
 }
 
 do_bsh_alias() {
@@ -692,8 +682,7 @@ set_p_src() {
   echo
   beep_attention
   # Do not append a trailing slash (/) to the end of the path prefix.
-  read -p "Please enter a path to the Enlightenment source folders (e.g. /home/lucas\
-  or /home/lucas/testing): " mypath
+  read -p "Please enter a path to the Enlightenment source folders (e.g. /home/lucas or /home/lucas/testing): " mypath
   mkdir -p "$mypath"/sources
   ESRC="$mypath"/sources
   echo $ESRC >$HOME/.cache/ebuilds/storepath
@@ -913,8 +902,7 @@ debug_go() {
       # if you want to use DDD).
       cd $ESRC/e23/enlightenment && ./xdebug.sh
       printf "\n$BDP%s %s" "Please check /var/crash for core dumps,"
-      printf "\n$BDP%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your \
-      home directory."
+      printf "\n$BDP%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home directory."
       ;;
     [nN])
       printf "\n%s\n\n" "(do not run Enlightenment.. OK)"
@@ -926,8 +914,7 @@ debug_go() {
 
       cd $ESRC/e23/enlightenment && ./xdebug.sh
       printf "\n$BDP%s %s" "Please check /var/crash for core dumps,"
-      printf "\n$BDP%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your \
-      home directory."
+      printf "\n$BDP%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home directory."
       ;;
   esac
 }
