@@ -130,12 +130,9 @@ sel_menu() {
 
     # Hints.
     # 1/2: Plain build with well tested default values.
-    # 3: A feature-rich, decently optimized build; however, occasionally
-    # technical glitches do happen...
-    # 4: Same as above, but running Enlightenment as a Wayland compositor
-    # is still considered experimental.
-    # 5: Make sure E compositor is set to Software rendering (not OpenGL)
-    # and default theme is applied.
+    # 3: A feature-rich, decently optimized build; however, occasionally technical glitches do happen...
+    # 4: Same as above, but running Enlightenment as a Wayland compositor is still considered experimental.
+    # 5: Make sure E compositor is set to Software rendering (not OpenGL) and default theme is applied.
     # 6: Nuke 'Em All!
 
     sleep 1 && printf "$ITA%s $OFF%s\n\n" "Or press Ctrl+C to quit."
