@@ -705,9 +705,8 @@ get_preq() {
   git clone https://github.com/Samsung/rlottie.git
   cd $ESRC/rlottie
   meson build
-  meson configure -Dexample=false -Dbuildtype=release build
-  ninja -C build || mng_err
-  $SNIN || mng_err
+  ninja -C build || true
+  $SNIN || true
   sudo ldconfig
   echo
 }
