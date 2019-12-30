@@ -68,9 +68,10 @@ libunibreak-dev libunwind-dev libvlc-dev libwebp-dev \
 libxcb-keysyms1-dev libxcursor-dev libxine2-dev libxinerama-dev \
 libxkbcommon-x11-dev libxkbfile-dev libxrandr-dev libxss-dev \
 libxtst-dev linux-tools-common linux-tools-$(uname -r) \
-lolcat manpages-dev manpages-posix-dev meson mlocate mono-mcs \
-ninja-build texlive-base unity-greeter-badges valgrind \
-wayland-protocols wmctrl xserver-xephyr xwayland zenity"
+lolcat manpages-dev manpages-posix-dev meson mlocate \
+mono-mcs ninja-build texlive-base unity-greeter-badges \
+valgrind wayland-protocols wmctrl xserver-xephyr \
+xwayland zenity"
 
 # Latest source code from GIT repositories.
 CLONEFL="git clone https://git.enlightenment.org/core/efl.git"
