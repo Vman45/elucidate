@@ -267,16 +267,6 @@ build_plain() {
   sudo ln -sf /usr/lib/x86_64-linux-gnu/preloadable_libintl.so /usr/lib/libintl.so
   sudo ldconfig
 
-  which meson &>/dev/null || pip3 install --user meson==$MVER
-  if [ "$?" -ne 0 ]; then
-    printf "\n$BDR%s %s\n" "PIP INSTALL ERROR!"
-    printf "$BDR%s $OFF%s\n\n" "SCRIPT ABORTED."
-    beep_exit
-    exit 1
-  else
-    chk_path
-  fi
-
   for I in $PROG_MN; do
     cd $ESRC/e23/$I
     printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
