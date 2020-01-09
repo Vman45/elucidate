@@ -515,11 +515,10 @@ rebuild_debug_mn() {
   echo "/var/crash/core.%e.%p.%h.%t" | sudo tee /proc/sys/kernel/core_pattern &>/dev/null
 
   # You can safely ignore the "NOTICE" message.
-  if [ ! -e $ESRC/glibc-* ]; then
-    cd $ESRC && apt source glibc
-    rm -rf glibc_*
-    sudo updatedb
-  fi
+  cd $ESRC
+  [[ $(ls | grep glibc[-]) ]] || apt source glibc
+  rm -rf glibc_*
+  sudo updatedb
 
   cd $ESRC/rlottie
   printf "\n$BLD%s $OFF%s\n\n" "Updating rlottie..."
