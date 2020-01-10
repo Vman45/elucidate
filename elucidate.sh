@@ -35,7 +35,6 @@ ITA="\e[3m"    # Italic text.
 BDR="\e[1;31m" # Bold red text.
 BDG="\e[1;32m" # Bold green text.
 BDY="\e[1;33m" # Bold yellow text.
-BDP="\e[0;35m" # Bold purple text.
 OFF="\e[0m"    # Turn off ANSI colors and formatting.
 
 PREFIX=/usr/local
@@ -124,7 +123,7 @@ sel_menu() {
     Update and rebuild E23 in RELEASE mode"
     printf "#4 $BDY%s $OFF%s\n\n" "
     Update and rebuild E23 with WAYLAND support"
-    printf "#5 $BDP%s $OFF%s\n\n" "
+    printf "#5 $BDY%s $OFF%s\n\n" "
     Update and rebuild E23 for DEBUGGING purposes"
     printf "#6 $BDR%s $OFF%s\n\n" "
     UNINSTALL all Enlightenment 23 programs"
@@ -861,7 +860,7 @@ wld_go() {
 
 debug_go() {
   clear
-  printf "\n$BDP%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: DEBUG BUILD *"
+  printf "\n$BDY%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: DEBUG BUILD *"
 
   cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
   chmod +x $HOME/.local/bin/elucidate.sh
@@ -881,27 +880,27 @@ debug_go() {
   read -t 12 -p "Do you want to test run Enlightenment in a nested window now? [Y/n] " answer
   case $answer in
     [yY])
-      printf "\n$BDP%s %s" "When you're done, log out of Enlightenment and close the Xephyr window."
-      printf "\n$BDP%s $OFF%s\n" "You may need to enter q to end the debugging session (quit gdb)."
+      printf "\n$BDY%s %s" "When you're done, log out of Enlightenment and close the Xephyr window."
+      printf "\n$BDY%s $OFF%s\n" "You may need to enter q to end the debugging session (quit gdb)."
       sleep 6
 
       # Run ./xdebug.sh --help for options (e.g. append "--dbg-mode=d" to the command below
       # if you want to use DDD).
       cd $ESRC/e23/enlightenment && ./xdebug.sh
-      printf "\n$BDP%s %s" "Please check /var/crash for core dumps,"
-      printf "\n$BDP%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home directory."
+      printf "\n$BDY%s %s" "Please check /var/crash for core dumps,"
+      printf "\n$BDY%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home directory."
       ;;
     [nN])
       printf "\n%s\n\n" "(do not run Enlightenment.. OK)"
       ;;
     *)
-      printf "\n$BDP%s %s" "When you're done, log out of Enlightenment and close the Xephyr window."
-      printf "\n$BDP%s $OFF%s\n" "You may need to enter q to end the debugging session (quit gdb)."
+      printf "\n$BDY%s %s" "When you're done, log out of Enlightenment and close the Xephyr window."
+      printf "\n$BDY%s $OFF%s\n" "You may need to enter q to end the debugging session (quit gdb)."
       sleep 6
 
       cd $ESRC/e23/enlightenment && ./xdebug.sh
-      printf "\n$BDP%s %s" "Please check /var/crash for core dumps,"
-      printf "\n$BDP%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home directory."
+      printf "\n$BDY%s %s" "Please check /var/crash for core dumps,"
+      printf "\n$BDY%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home directory."
       ;;
   esac
 }
