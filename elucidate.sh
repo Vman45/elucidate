@@ -1056,10 +1056,12 @@ uninstall_e23() {
   sudo rm -rf ecore*
   sudo rm -rf edje*
   sudo rm -rf eeze*
+  sudo rm -rf efl*
   sudo rm -rf efreet*
   sudo rm -rf elementary*
   sudo rm -rf emotion*
   sudo rm -rf enlightenment*
+  sudo rm -rf ephoto*
   sudo rm -rf ethumb*
   sudo rm -rf evas*
   sudo rm -rf libecore*
@@ -1083,11 +1085,13 @@ uninstall_e23() {
   sudo rm -rf libethumb*
   sudo rm -rf libevas*
   sudo rm -rf librlottie*
+  sudo rm -rf rage*
 
   cd /usr/local/lib/x86_64-linux-gnu/cmake
   sudo rm -rf Ecore*
   sudo rm -rf Edje*
   sudo rm -rf Eet*
+  sudo rm -rf Eeze*
   sudo rm -rf Efl*
   sudo rm -rf Efreet
   sudo rm -rf Eina*
