@@ -1029,7 +1029,7 @@ uninstall_e23() {
   sudo rm -rf enventor*
   sudo rm -rf ethumb*
   sudo rm -rf evas*
-  sudo rm -rf x86*
+  #sudo rm -rf x86*
   sudo rm -rf libecore*
   sudo rm -rf libector*
   sudo rm -rf libedje*
@@ -1066,6 +1066,7 @@ uninstall_e23() {
   sudo rm -rf emotion*
   sudo rm -rf enlightenment*
   sudo rm -rf enventor*
+  sudo rm -rf evisum*
   sudo rm -rf eo*
   sudo rm -rf eolian*
   sudo rm -rf ephoto*
