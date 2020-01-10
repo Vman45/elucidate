@@ -80,11 +80,9 @@ CLONEPH="git clone https://git.enlightenment.org/apps/ephoto.git"
 CLONERG="git clone https://git.enlightenment.org/apps/rage.git"
 CLONEVI="git clone https://git.enlightenment.org/apps/evisum.git"
 CLONEVE="git clone https://git.enlightenment.org/tools/enventor.git"
-##CLONECL="git clone https://git.enlightenment.org/tools/clouseau.git"
 
 PROG_MN="efl terminology enlightenment ephoto evisum rage"
 PROG_AT="enventor"
-## PROG_CK="clouseau"
 
 # FUNCTIONS
 # ---------
@@ -180,7 +178,6 @@ bin_deps() {
   fi
 }
 
-## ($COUNT == 8 with Clouseau)
 ls_dir() {
   COUNT=$(ls -d */ | wc -l)
   if [ $COUNT == 7 ]; then
@@ -289,17 +286,6 @@ build_plain() {
     $SNIN || true
     sudo ldconfig
   done
-
-  ## for I in $PROG_CK; do
-  ##   cd $ESRC/e23/$I
-  ##   printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
-  ##
-  ##   mkdir build && cd build
-  ##   cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
-  ##   make || true
-  ##   beep_attention
-  ##   $SMIL || true
-  ## done
 }
 
 rebuild_plain() {
@@ -419,12 +405,6 @@ rebuild_optim() {
     sudo ldconfig
     elap_stop
   done
-
-  ##   for I in $PROG_CK; do
-  ##     cd $ESRC/e23/$I
-  ##     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
-  ## # TODO...
-  ##   done
 }
 
 rebuild_wld() {
@@ -497,12 +477,6 @@ rebuild_wld() {
     sudo ldconfig
     elap_stop
   done
-
-  ##   for I in $PROG_CK; do
-  ##     cd $ESRC/e23/$I
-  ##     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
-  ## # TODO...
-  ##   done
 }
 
 rebuild_debug_mn() {
@@ -581,20 +555,6 @@ rebuild_debug_at() {
     elap_stop
   done
 }
-
-## rebuild_debug_ck() {
-##   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
-##   export LC_ALL=C
-##
-##   for I in $PROG_CK; do
-##     elap_start
-##     cd $ESRC/e23/$I
-##
-##     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
-##     # TODO...
-##     elap_stop
-##   done
-## }
 
 do_tests() {
   if [ -x /usr/bin/wmctrl ]; then
@@ -730,8 +690,6 @@ install_now() {
   echo
   $CLONEVE
   echo
-  ## $CLONECL
-  ## echo
 
   ls_dir
 
@@ -870,7 +828,6 @@ debug_go() {
   zen_debug 2>/dev/null
   rebuild_debug_mn
   rebuild_debug_at
-  ## rebuild_debug_ck
   echo
 
   # For serious debugging, please refer to the following documents.
@@ -911,12 +868,6 @@ remov_eprog_at() {
     make maintainer-clean
   done
 }
-
-## remov_eprog_ck() {
-##   for I in $PROG_CK; do
-## # TODO...
-##   done
-## }
 
 remov_eprog_mn() {
   for I in $PROG_MN; do
@@ -976,10 +927,6 @@ uninstall_e23() {
   for I in $PROG_AT; do
     cd $ESRC/e23/$I && remov_eprog_at
   done
-
-  ## for I in $PROG_CK; do
-  ##   cd $ESRC/e23/$I && remov_eprog_ck
-  ## done
 
   for I in $PROG_MN; do
     cd $ESRC/e23/$I && remov_eprog_mn
