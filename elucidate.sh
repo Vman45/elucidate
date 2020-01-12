@@ -568,7 +568,6 @@ do_bsh_alias() {
     touch $HOME/.bash_aliases
 
     cat >$HOME/.bash_aliases <<EOF
-
     # Compiler and linker flags.
     export CC="ccache gcc"
     export CXX="ccache g++"
