@@ -179,7 +179,7 @@ elap_start() {
 
 elap_stop() {
   DELTA=$(($(date +%s) - $START))
-  printf "\n%s" "Compilation time: "
+  printf "\n%s" "Compilation and linking time: "
   printf ""%dh:%dm:%ds"\n\n" $(($DELTA / 3600)) $(($DELTA % 3600 / 60)) $(($DELTA % 60))
 }
 
