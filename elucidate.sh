@@ -20,22 +20,17 @@
 # feel free to use this script as you see fit.
 # Github repositories: https://github.com/batden
 
-# Screenshots: https://www.enlightenment.org/ss/
-
 # Script debugging.
 #export PS4='+ $LINENO: '
 #export LC_ALL=C
 #set -vx
 
-# LOCAL VARIABLES
-# ---------------
-
-BLD="\e[1m"    # Bold text.
-ITA="\e[3m"    # Italic text.
-BDR="\e[1;31m" # Bold red text.
-BDG="\e[1;32m" # Bold green text.
-BDY="\e[1;33m" # Bold yellow text.
-OFF="\e[0m"    # Turn off ANSI colors and formatting.
+BLD="\e[1m"
+ITA="\e[3m"
+BDR="\e[1;31m"
+BDG="\e[1;32m"
+BDY="\e[1;33m"
+OFF="\e[0m"
 
 PREFIX=/usr/local
 DLDIR=$(xdg-user-dir DOWNLOAD)
@@ -72,7 +67,7 @@ mono-mcs ninja-build texlive-base unity-greeter-badges \
 valgrind wayland-protocols wmctrl xserver-xephyr \
 xwayland zenity"
 
-# Latest source code from GIT repositories.
+# Latest source code.
 CLONEFL="git clone https://git.enlightenment.org/core/efl.git"
 CLONETY="git clone https://git.enlightenment.org/apps/terminology.git"
 CLONE23="git clone https://git.enlightenment.org/core/enlightenment.git"
@@ -83,9 +78,6 @@ CLONEVE="git clone https://git.enlightenment.org/tools/enventor.git"
 
 PROG_MN="efl terminology enlightenment ephoto evisum rage"
 PROG_AT="enventor"
-
-# FUNCTIONS
-# ---------
 
 zen_debug() {
   zenity --no-wrap --info --text "
@@ -140,26 +132,6 @@ sel_menu() {
 
 bin_deps() {
   sudo apt update && sudo apt full-upgrade
-
-  # Backup list of currently installed packages (with a few exceptions).
-  if [ ! -f $DOCDIR/installed_pkgs.txt ]; then
-    apt-cache dumpavail >/tmp/apt-avail
-    sudo dpkg --merge-avail /tmp/apt-avail
-    rm /tmp/apt-avail
-    dpkg --get-selections >$DOCDIR/installed_pkgs.txt
-    sed -i '/linux-generic*/d' $DOCDIR/installed_pkgs.txt
-    sed -i '/linux-headers*/d' $DOCDIR/installed_pkgs.txt
-    sed -i '/linux-image*/d' $DOCDIR/installed_pkgs.txt
-    sed -i '/linux-modules*/d' $DOCDIR/installed_pkgs.txt
-    sed -i '/linux-image*/d' $DOCDIR/installed_pkgs.txt
-    sed -i '/linux-signed*/d' $DOCDIR/installed_pkgs.txt
-    sed -i '/linux-tools*/d' $DOCDIR/installed_pkgs.txt
-  fi
-
-  # Backup list of currently installed repositories.
-  if [ ! -f $DOCDIR/installed_repos.txt ]; then
-    grep -Erh ^deb /etc/apt/sources.list* >$DOCDIR/installed_repos.txt
-  fi
 
   sudo apt install $DEPS
   if [ $? -ne 0 ]; then
@@ -596,9 +568,6 @@ do_bsh_alias() {
     touch $HOME/.bash_aliases
 
     cat >$HOME/.bash_aliases <<EOF
-
-    # GLOBAL VARIABLES
-    # ----------------
 
     # Compiler and linker flags.
     export CC="ccache gcc"
