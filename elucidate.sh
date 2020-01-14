@@ -16,9 +16,11 @@
 # Subsequent runs.
 # Open Terminal and simply type elucidate.sh
 
-# ELUCIDATE.SH is written by similar@orange.fr and carlasensa@sfr.fr,
+# ELUCIDATR.SH is written by similar@orange.fr and carlasensa@sfr.fr,
 # feel free to use this script as you see fit.
-# Github repositories: https://github.com/batden
+
+# Please consider sending us a tip via https://www.paypal.me/PJGuillaumie
+# or starring the repository to show your support.
 
 # Script debugging.
 #export PS4='+ $LINENO: '
