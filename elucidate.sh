@@ -16,7 +16,7 @@
 # Subsequent runs.
 # Open Terminal and simply type elucidate.sh
 
-# ELUCIDATR.SH is written by similar@orange.fr and carlasensa@sfr.fr,
+# ELUCIDATE.SH is written by similar@orange.fr and carlasensa@sfr.fr,
 # feel free to use this script as you see fit.
 
 # Please consider sending us a tip via https://www.paypal.me/PJGuillaumie
