@@ -676,7 +676,6 @@ update_go() {
   printf "\n$BDG%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: PLAIN BUILD *"
 
   cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
-  chmod +x $HOME/.local/bin/elucidate.sh
   sleep 1
 
   rebuild_plain
@@ -705,7 +704,6 @@ release_go() {
   printf "\n$BDG%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: RELEASE BUILD *"
 
   cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
-  chmod +x $HOME/.local/bin/elucidate.sh
   sleep 1
 
   rebuild_optim
@@ -734,7 +732,6 @@ wld_go() {
   printf "\n$BDY%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: WAYLAND BUILD *"
 
   cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
-  chmod +x $HOME/.local/bin/elucidate.sh
   sleep 1
 
   rebuild_wld
@@ -771,7 +768,6 @@ debug_go() {
   printf "\n$BDY%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: DEBUG BUILD *"
 
   cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
-  chmod +x $HOME/.local/bin/elucidate.sh
   sleep 1
 
   beep_attention
