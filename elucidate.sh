@@ -226,7 +226,6 @@ e_tokens() {
 build_plain() {
   chk_path
 
-  sudo ln -sf /usr/lib/x86_64-linux-gnu/preloadable_libintl.so /usr/lib/libgnuintl.so.8
   sudo ln -sf /usr/lib/x86_64-linux-gnu/preloadable_libintl.so /usr/lib/libintl.so
   sudo ldconfig
 
@@ -314,7 +313,6 @@ rebuild_optim() {
   git reset --hard &>/dev/null
   git pull
   echo
-  sudo chown $USER build/.ninja*
   meson configure -Dexample=false -Dbuildtype=release build
   ninja -C build || true
   $SNIN || true
@@ -384,7 +382,6 @@ rebuild_wld() {
   git reset --hard &>/dev/null
   git pull
   echo
-  sudo chown $USER build/.ninja*
   meson configure -Dexample=false -Dbuildtype=release build
   ninja -C build || true
   $SNIN || true
@@ -402,7 +399,6 @@ rebuild_wld() {
 
     case $I in
       efl)
-        sudo chown $USER build/.ninja*
         meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
           -Dbindings=luajit,cxx,mono -Ddrm=true -Dwl=true -Dopengl=es-egl \
           -Dbuild-tests=false -Dbuild-examples=false \
@@ -411,7 +407,6 @@ rebuild_wld() {
         ninja -C build || mng_err
         ;;
       enlightenment)
-        sudo chown $USER build/.ninja*
         meson configure -Dwl=true -Dbuildtype=release build
         ninja -C build || mng_err
         ;;
@@ -465,7 +460,6 @@ rebuild_debug_mn() {
   git reset --hard &>/dev/null
   git pull
   echo
-  sudo chown $USER build/.ninja*
   meson configure -Dbuildtype=debugoptimized build
   ninja -C build || true
   $SNIN || true
