@@ -1134,7 +1134,6 @@ uninstall_e23() {
   mv -f $DOCDIR/installed_manually_pkgs.txt $DOCDIR/inst_m_pkgs_bak.txt
   mv -f $DOCDIR/installed_repos.txt $DOCDIR/inst_repos_bak.txt
 
-  sudo rm -rf /usr/lib/libgnuintl.so.8
   sudo rm -rf /usr/lib/libintl.so
   sudo ldconfig
   sudo updatedb
