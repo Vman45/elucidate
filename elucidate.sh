@@ -65,7 +65,7 @@ libxcb-keysyms1-dev libxcursor-dev libxine2-dev libxinerama-dev \
 libxkbcommon-x11-dev libxkbfile-dev libxrandr-dev libxss-dev \
 libxtst-dev linux-tools-common linux-tools-$(uname -r) \
 lolcat manpages-dev manpages-posix-dev meson mlocate \
-mono-mcs ninja-build texlive-base unity-greeter-badges \
+ninja-build texlive-base unity-greeter-badges \
 valgrind wayland-protocols wmctrl xserver-xephyr \
 xwayland zenity"
 
@@ -331,7 +331,7 @@ rebuild_optim() {
     case $I in
       efl)
         meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
-          -Dbindings=luajit,cxx,mono -Dbuild-tests=false -Dbuild-examples=false \
+          -Dbindings=luajit,cxx -Dbuild-tests=false -Dbuild-examples=false \
           -Devas-loaders-disabler=json -Dbuildtype=release build
         ninja -C build || mng_err
         ;;
@@ -397,7 +397,7 @@ rebuild_wld() {
     case $I in
       efl)
         meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
-          -Dbindings=luajit,cxx,mono -Ddrm=true -Dwl=true -Dopengl=es-egl \
+          -Dbindings=luajit,cxx -Ddrm=true -Dwl=true -Dopengl=es-egl \
           -Dbuild-tests=false -Dbuild-examples=false \
           -Devas-loaders-disabler=json \
           -Dbuildtype=release build
