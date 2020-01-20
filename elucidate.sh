@@ -263,7 +263,6 @@ rebuild_plain() {
   printf "\n$BLD%s $OFF%s\n\n" "Updating rlottie..."
   git reset --hard &>/dev/null
   git pull
-  sudo chown $USER build/.ninja*
   meson --reconfigure build
   ninja -C build || true
   $SNIN || true
@@ -283,18 +282,15 @@ rebuild_plain() {
 
     case $I in
       efl)
-        sudo chown $USER build/.ninja*
         meson . build
         ninja -C build || mng_err
         ;;
       enlightenment)
-        sudo chown $USER build/.ninja*
         meson . build
         ninja -C build || mng_err
         ;;
       *)
         meson . build
-        sudo chown $USER build/.ninja*
         ninja -C build || true
         ;;
     esac
