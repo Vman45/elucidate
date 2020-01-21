@@ -1127,12 +1127,15 @@ uninstall_e23() {
     case $answer in
       [yY])
         rm -rf $HOME/.bash_aliases && source $HOME/.bashrc
+        sleep 1
         ;;
       [nN])
         printf "\n%s\n\n" "(do not delete bash_aliases... OK)"
+        sleep 1
         ;;
       *)
         rm -rf $HOME/.bash_aliases && source $HOME/.bashrc
+        sleep 1
         ;;
     esac
   fi
