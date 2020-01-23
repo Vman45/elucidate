@@ -29,6 +29,7 @@ On subsequent runs, open Terminal and simply type:
 ```bash
 elucidate.sh
 ```
+
 That's it.
 
 Mind the cows! :cow2: :cow2: :cow2:
