@@ -11,6 +11,7 @@ First, clone this repository:
 ```bash
 git clone https://github.com/batden/elucidate.git .elucidate
 ```
+
 That creates a new hidden folder named ".elucidate" in your home directory.
 
 Copy the file "elucidate.sh" from this new folder to the download folder.
