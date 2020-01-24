@@ -282,15 +282,15 @@ rebuild_plain() {
 
     case $I in
       efl)
-        meson . build
+        meson build
         ninja -C build || mng_err
         ;;
       enlightenment)
-        meson . build
+        meson build
         ninja -C build || mng_err
         ;;
       *)
-        meson . build
+        meson build
         ninja -C build || true
         ;;
     esac
