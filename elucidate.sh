@@ -919,7 +919,7 @@ uninstall_e23() {
   sudo rm -rf enlightenment
 
   cd /usr/local/include
-  sudo rm -rf *-1
+  sudo rm -rf -- *-1
   sudo rm -rf enlightenment
 
   cd /usr/local/lib
