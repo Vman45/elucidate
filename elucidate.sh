@@ -592,7 +592,7 @@ set_p_src() {
   echo
   beep_attention
   # Do not append a trailing slash (/) to the end of the path prefix.
-  read -p "Please enter a path to the Enlightenment source folders (e.g. /home/lucas or /home/lucas/testing): " mypath
+  read -p "Please enter a path to the Enlightenment source folders (e.g. /home/jamie or /home/jamie/testing): " mypath
   mkdir -p "$mypath"/sources
   ESRC="$mypath"/sources
   echo $ESRC >$HOME/.cache/ebuilds/storepath
@@ -666,6 +666,9 @@ install_now() {
 
   sudo ln -sf /usr/local/etc/xdg/menus/e-applications.menu /etc/xdg/menus/e-applications.menu
 
+  sudo ln -sf /usr/local/share/xsessions/enlightenment.desktop \
+    /usr/share/xsessions/enlightenment.desktop
+
   sudo updatedb
   beep_ok
 
@@ -688,6 +691,7 @@ update_go() {
   printf "\n$BDG%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: PLAIN BUILD *"
 
   cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
+  chmod +x $HOME/.local/bin/eligible.sh
   sleep 1
 
   rebuild_plain
@@ -696,9 +700,6 @@ update_go() {
   sudo ln -sf /usr/local/etc/enlightenment/sysactions.conf /etc/enlightenment/sysactions.conf
 
   sudo ln -sf /usr/local/etc/xdg/menus/e-applications.menu /etc/xdg/menus/e-applications.menu
-
-  sudo ln -sf /usr/local/share/xsessions/enlightenment.desktop \
-    /usr/share/xsessions/enlightenment.desktop
 
   if [ -f /usr/share/wayland-sessions/enlightenment.desktop ]; then
     sudo rm -rf /usr/share/wayland-sessions/enlightenment.desktop
@@ -716,6 +717,7 @@ release_go() {
   printf "\n$BDG%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: RELEASE BUILD *"
 
   cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
+  chmod +x $HOME/.local/bin/eligible.sh
   sleep 1
 
   rebuild_optim
@@ -744,6 +746,7 @@ wld_go() {
   printf "\n$BDY%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: WAYLAND BUILD *"
 
   cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
+  chmod +x $HOME/.local/bin/eligible.sh
   sleep 1
 
   rebuild_wld
@@ -780,6 +783,7 @@ debug_go() {
   printf "\n$BDY%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: DEBUG BUILD *"
 
   cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
+  chmod +x $HOME/.local/bin/eligible.sh
   sleep 1
 
   beep_attention
