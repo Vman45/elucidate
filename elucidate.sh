@@ -683,7 +683,7 @@ install_now() {
   That's All Folks!" | lolcat -a
   echo
 
-  cp -f $DLDIR/epanema.sh $HOME/.local/bin
+  cp -f $DLDIR/elucidate.sh $HOME/.local/bin
 }
 
 update_go() {
