@@ -682,8 +682,6 @@ install_now() {
   cowsay "Now reboot your computer then select Enlightenment on the login screen... \
   That's All Folks!" | lolcat -a
   echo
-
-  cp -f $DLDIR/elucidate.sh $HOME/.local/bin
 }
 
 update_go() {
