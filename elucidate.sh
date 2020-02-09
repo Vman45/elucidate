@@ -54,18 +54,18 @@ libavahi-client-dev libblkid-dev libbluetooth-dev \
 libcogl-gles2-dev libexif-dev libfontconfig1-dev \
 libfreetype6-dev libfribidi-dev libgeoclue-2-dev \
 libgif-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
-libharfbuzz-dev libibus-1.0-dev libinput-dev libjpeg-dev \
-libluajit-5.1-dev liblz4-dev libmount-dev libopenjp2-7-dev \
-libosmesa6-dev libpam0g-dev libpoppler-cpp-dev libpoppler-dev \
-libpoppler-private-dev libpulse-dev libraw-dev librsvg2-dev \
-libscim-dev libsndfile1-dev libspectre-dev libssl-dev \
-libsystemd-dev libtiff5-dev libtool libudev-dev libudisks2-dev \
-libunibreak-dev libunwind-dev libvlc-dev libwebp-dev \
-libxcb-keysyms1-dev libxcursor-dev libxine2-dev libxinerama-dev \
-libxkbcommon-x11-dev libxkbfile-dev libxrandr-dev libxss-dev \
-libxtst-dev linux-tools-common linux-tools-$(uname -r) \
-lolcat manpages-dev manpages-posix-dev meson mlocate \
-ninja-build texlive-base unity-greeter-badges \
+libharfbuzz-dev libi2c-dev libibus-1.0-dev libinput-dev \
+libjpeg-dev libluajit-5.1-dev liblz4-dev libmount-dev \
+libopenjp2-7-dev libosmesa6-dev libpam0g-dev libpoppler-cpp-dev \
+libpoppler-dev libpoppler-private-dev libpulse-dev libraw-dev \
+librsvg2-dev libscim-dev libsndfile1-dev libspectre-dev \
+libssl-dev libsystemd-dev libtiff5-dev libtool libudev-dev \
+libudisks2-dev libunibreak-dev libunwind-dev libvlc-dev \
+libwebp-dev libxcb-keysyms1-dev libxcursor-dev libxine2-dev \
+libxinerama-dev libxkbcommon-x11-dev libxkbfile-dev \
+libxrandr-dev libxss-dev libxtst-dev linux-tools-common \
+linux-tools-$(uname -r) lolcat manpages-dev manpages-posix-dev \
+meson mlocate ninja-build texlive-base unity-greeter-badges \
 valgrind wayland-protocols wmctrl xserver-xephyr \
 xwayland zenity"
 
