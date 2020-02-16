@@ -52,8 +52,8 @@ gstreamer1.0-plugins-bad gstreamer1.0-plugins-good \
 gstreamer1.0-plugins-ugly imagemagick libasound2-dev \
 libavahi-client-dev libblkid-dev libbluetooth-dev \
 libcogl-gles2-dev libexif-dev libfontconfig1-dev \
-libfreetype6-dev libfribidi-dev libgeoclue-2-dev \
-libgif-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
+libfreetype6-dev libfribidi-dev libgeoclue-2-dev libgif-dev \
+libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
 libharfbuzz-dev libi2c-dev libibus-1.0-dev libinput-dev \
 libjpeg-dev libluajit-5.1-dev liblz4-dev libmount-dev \
 libopenjp2-7-dev libosmesa6-dev libpam0g-dev libpoppler-cpp-dev \
@@ -210,15 +210,15 @@ e_tokens() {
     beep_question
     read -t 12 -p "Do you want to back up your E23 settings now? [y/N] " answer
     case $answer in
-      [yY])
-        e_bkp
-        ;;
-      [nN])
-        printf "\n%s\n\n" "(do not back up my user settings and themes folders... OK)"
-        ;;
-      *)
-        printf "\n%s\n\n" "(do not back up my user settings and themes folders... OK)"
-        ;;
+    [yY])
+      e_bkp
+      ;;
+    [nN])
+      printf "\n%s\n\n" "(do not back up my user settings and themes folders... OK)"
+      ;;
+    *)
+      printf "\n%s\n\n" "(do not back up my user settings and themes folders... OK)"
+      ;;
     esac
   fi
 }
@@ -234,18 +234,18 @@ build_plain() {
     printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
 
     case $I in
-      efl)
-        meson build
-        ninja -C build || mng_err
-        ;;
-      enlightenment)
-        meson build
-        ninja -C build || mng_err
-        ;;
-      *)
-        meson build
-        ninja -C build || true
-        ;;
+    efl)
+      meson build
+      ninja -C build || mng_err
+      ;;
+    enlightenment)
+      meson build
+      ninja -C build || mng_err
+      ;;
+    *)
+      meson build
+      ninja -C build || true
+      ;;
     esac
 
     beep_attention
@@ -281,18 +281,18 @@ rebuild_plain() {
     echo
 
     case $I in
-      efl)
-        meson build
-        ninja -C build || mng_err
-        ;;
-      enlightenment)
-        meson build
-        ninja -C build || mng_err
-        ;;
-      *)
-        meson build
-        ninja -C build || true
-        ;;
+    efl)
+      meson build
+      ninja -C build || mng_err
+      ;;
+    enlightenment)
+      meson build
+      ninja -C build || mng_err
+      ;;
+    *)
+      meson build
+      ninja -C build || true
+      ;;
     esac
 
     beep_attention
@@ -330,23 +330,23 @@ rebuild_optim() {
     git pull
 
     case $I in
-      efl)
-        sudo chown $USER build/.ninja*
-        meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
-          -Dbindings=luajit,cxx -Dbuild-tests=false -Dbuild-examples=false \
-          -Devas-loaders-disabler=json -Dbuildtype=release build
-        ninja -C build || mng_err
-        ;;
-      enlightenment)
-        sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=release build
-        ninja -C build || mng_err
-        ;;
-      *)
-        sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=release build
-        ninja -C build || true
-        ;;
+    efl)
+      sudo chown $USER build/.ninja*
+      meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
+        -Dbindings=luajit,cxx -Dbuild-tests=false -Dbuild-examples=false \
+        -Devas-loaders-disabler=json -Dbuildtype=release build
+      ninja -C build || mng_err
+      ;;
+    enlightenment)
+      sudo chown $USER build/.ninja*
+      meson configure -Dbuildtype=release build
+      ninja -C build || mng_err
+      ;;
+    *)
+      sudo chown $USER build/.ninja*
+      meson configure -Dbuildtype=release build
+      ninja -C build || true
+      ;;
     esac
 
     $SNIN || true
@@ -400,25 +400,25 @@ rebuild_wld() {
     git pull
 
     case $I in
-      efl)
-        sudo chown $USER build/.ninja*
-        meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
-          -Dbindings=luajit,cxx -Ddrm=true -Dwl=true -Dopengl=es-egl \
-          -Dbuild-tests=false -Dbuild-examples=false \
-          -Devas-loaders-disabler=json \
-          -Dbuildtype=release build
-        ninja -C build || mng_err
-        ;;
-      enlightenment)
-        sudo chown $USER build/.ninja*
-        meson configure -Dwl=true -Dbuildtype=release build
-        ninja -C build || mng_err
-        ;;
-      *)
-        sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=release build
-        ninja -C build || true
-        ;;
+    efl)
+      sudo chown $USER build/.ninja*
+      meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
+        -Dbindings=luajit,cxx -Ddrm=true -Dwl=true -Dopengl=es-egl \
+        -Dbuild-tests=false -Dbuild-examples=false \
+        -Devas-loaders-disabler=json \
+        -Dbuildtype=release build
+      ninja -C build || mng_err
+      ;;
+    enlightenment)
+      sudo chown $USER build/.ninja*
+      meson configure -Dwl=true -Dbuildtype=release build
+      ninja -C build || mng_err
+      ;;
+    *)
+      sudo chown $USER build/.ninja*
+      meson configure -Dbuildtype=release build
+      ninja -C build || true
+      ;;
     esac
 
     $SNIN || true
@@ -477,21 +477,21 @@ rebuild_debug_mn() {
     git pull
 
     case $I in
-      efl)
-        sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=debugoptimized build
-        ninja -C build || mng_err
-        ;;
-      enlightenment)
-        sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=debugoptimized build
-        ninja -C build || mng_err
-        ;;
-      *)
-        sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=debugoptimized build
-        ninja -C build || true
-        ;;
+    efl)
+      sudo chown $USER build/.ninja*
+      meson configure -Dbuildtype=debugoptimized build
+      ninja -C build || mng_err
+      ;;
+    enlightenment)
+      sudo chown $USER build/.ninja*
+      meson configure -Dbuildtype=debugoptimized build
+      ninja -C build || mng_err
+      ;;
+    *)
+      sudo chown $USER build/.ninja*
+      meson configure -Dbuildtype=debugoptimized build
+      ninja -C build || true
+      ;;
     esac
 
     $SNIN || true
@@ -798,29 +798,29 @@ debug_go() {
   beep_question
   read -t 12 -p "Do you want to test run Enlightenment in a nested window now? [Y/n] " answer
   case $answer in
-    [yY])
-      printf "\n$BDY%s %s" "When you're done, log out of Enlightenment and close the Xephyr window."
-      printf "\n$BDY%s $OFF%s\n" "You may need to enter q to end the debugging session (quit gdb)."
-      sleep 6
+  [yY])
+    printf "\n$BDY%s %s" "When you're done, log out of Enlightenment and close the Xephyr window."
+    printf "\n$BDY%s $OFF%s\n" "You may need to enter q to end the debugging session (quit gdb)."
+    sleep 6
 
-      # Run ./xdebug.sh --help for options (e.g. append "--dbg-mode=d" to the command below
-      # if you want to use DDD).
-      cd $ESRC/e23/enlightenment && ./xdebug.sh
-      printf "\n$BDY%s %s" "Please check /var/crash for core dumps,"
-      printf "\n$BDY%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home directory."
-      ;;
-    [nN])
-      printf "\n%s\n\n" "(do not run Enlightenment.. OK)"
-      ;;
-    *)
-      printf "\n$BDY%s %s" "When you're done, log out of Enlightenment and close the Xephyr window."
-      printf "\n$BDY%s $OFF%s\n" "You may need to enter q to end the debugging session (quit gdb)."
-      sleep 6
+    # Run ./xdebug.sh --help for options (e.g. append "--dbg-mode=d" to the command below
+    # if you want to use DDD).
+    cd $ESRC/e23/enlightenment && ./xdebug.sh
+    printf "\n$BDY%s %s" "Please check /var/crash for core dumps,"
+    printf "\n$BDY%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home directory."
+    ;;
+  [nN])
+    printf "\n%s\n\n" "(do not run Enlightenment.. OK)"
+    ;;
+  *)
+    printf "\n$BDY%s %s" "When you're done, log out of Enlightenment and close the Xephyr window."
+    printf "\n$BDY%s $OFF%s\n" "You may need to enter q to end the debugging session (quit gdb)."
+    sleep 6
 
-      cd $ESRC/e23/enlightenment && ./xdebug.sh
-      printf "\n$BDY%s %s" "Please check /var/crash for core dumps,"
-      printf "\n$BDY%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home directory."
-      ;;
+    cd $ESRC/e23/enlightenment && ./xdebug.sh
+    printf "\n$BDY%s %s" "Please check /var/crash for core dumps,"
+    printf "\n$BDY%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home directory."
+    ;;
   esac
 }
 
@@ -844,36 +844,36 @@ remov_preq() {
     beep_question
     read -t 12 -p "Remove libiconv and rlottie? [Y/n] " answer
     case $answer in
-      [yY])
-        echo
-        cd $ESRC/$ICNV
-        sudo make uninstall
-        make maintainer-clean
-        cd .. && rm -rf $ESRC/$ICNV
-        sudo rm -rf /usr/local/bin/iconv
-        echo
+    [yY])
+      echo
+      cd $ESRC/$ICNV
+      sudo make uninstall
+      make maintainer-clean
+      cd .. && rm -rf $ESRC/$ICNV
+      sudo rm -rf /usr/local/bin/iconv
+      echo
 
-        cd $ESRC/rlottie
-        sudo ninja -C build uninstall
-        cd .. && rm -rf rlottie
-        echo
-        ;;
-      [nN])
-        printf "\n%s\n\n" "(do not remove prerequisites... OK)"
-        ;;
-      *)
-        cd $ESRC/$ICNV
-        sudo make uninstall
-        make maintainer-clean
-        cd .. && rm -rf $ESRC/$ICNV
-        sudo rm -rf /usr/local/bin/iconv
+      cd $ESRC/rlottie
+      sudo ninja -C build uninstall
+      cd .. && rm -rf rlottie
+      echo
+      ;;
+    [nN])
+      printf "\n%s\n\n" "(do not remove prerequisites... OK)"
+      ;;
+    *)
+      cd $ESRC/$ICNV
+      sudo make uninstall
+      make maintainer-clean
+      cd .. && rm -rf $ESRC/$ICNV
+      sudo rm -rf /usr/local/bin/iconv
 
-        echo
-        cd $ESRC/rlottie
-        sudo ninja -C build uninstall
-        cd .. && rm -rf rlottie
-        echo
-        ;;
+      echo
+      cd $ESRC/rlottie
+      sudo ninja -C build uninstall
+      cd .. && rm -rf rlottie
+      echo
+      ;;
     esac
   fi
 }
@@ -1102,8 +1102,8 @@ uninstall_e23() {
   rm -rf .config/terminology
 
   find /usr/local/share/locale/*/LC_MESSAGES 2>/dev/null | while read -r I; do
-    echo "$I" \
-      | xargs sudo rm -rf $(grep -E 'efl|enlightenment|enventor|ephoto|libiconv|terminology')
+    echo "$I" |
+      xargs sudo rm -rf $(grep -E 'efl|enlightenment|enventor|ephoto|libiconv|terminology')
   done
 
   if [ -d $HOME/.ccache ]; then
@@ -1111,16 +1111,16 @@ uninstall_e23() {
     beep_question
     read -t 12 -p "Remove the hidden ccache folder (compiler cache)? [y/N] " answer
     case $answer in
-      [yY])
-        ccache -C
-        rm -rf $HOME/.ccache
-        ;;
-      [nN])
-        printf "\n%s\n\n" "(do not delete the ccache folder... OK)"
-        ;;
-      *)
-        printf "\n%s\n\n" "(do not delete the ccache folder... OK)"
-        ;;
+    [yY])
+      ccache -C
+      rm -rf $HOME/.ccache
+      ;;
+    [nN])
+      printf "\n%s\n\n" "(do not delete the ccache folder... OK)"
+      ;;
+    *)
+      printf "\n%s\n\n" "(do not delete the ccache folder... OK)"
+      ;;
     esac
   fi
 
@@ -1129,18 +1129,18 @@ uninstall_e23() {
     beep_question
     read -t 12 -p "Remove the hidden bash_aliases file? [Y/n] " answer
     case $answer in
-      [yY])
-        rm -rf $HOME/.bash_aliases && source $HOME/.bashrc
-        sleep 1
-        ;;
-      [nN])
-        printf "\n%s\n\n" "(do not delete bash_aliases... OK)"
-        sleep 1
-        ;;
-      *)
-        rm -rf $HOME/.bash_aliases && source $HOME/.bashrc
-        sleep 1
-        ;;
+    [yY])
+      rm -rf $HOME/.bash_aliases && source $HOME/.bashrc
+      sleep 1
+      ;;
+    [nN])
+      printf "\n%s\n\n" "(do not delete bash_aliases... OK)"
+      sleep 1
+      ;;
+    *)
+      rm -rf $HOME/.bash_aliases && source $HOME/.bashrc
+      sleep 1
+      ;;
     esac
   fi
 
