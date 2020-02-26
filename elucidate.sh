@@ -826,14 +826,14 @@ debug_go() {
 
 remov_eprog_at() {
   for I in $PROG_AT; do
-    sudo make uninstall
-    make maintainer-clean
+    sudo make uninstall &>/dev/null
+    make maintainer-clean &>/dev/null
   done
 }
 
 remov_eprog_mn() {
   for I in $PROG_MN; do
-    sudo ninja -C build uninstall
+    sudo ninja -C build uninstall &>/dev/null
     rm -rf build &>/dev/null
   done
 }
@@ -847,14 +847,14 @@ remov_preq() {
     [yY])
       echo
       cd $ESRC/$ICNV
-      sudo make uninstall
-      make maintainer-clean
+      sudo make uninstall &>/dev/null
+      make maintainer-clean &>/dev/null
       cd .. && rm -rf $ESRC/$ICNV
       sudo rm -rf /usr/local/bin/iconv
       echo
 
       cd $ESRC/rlottie
-      sudo ninja -C build uninstall
+      sudo ninja -C build uninstall &>/dev/null
       cd .. && rm -rf rlottie
       echo
       ;;
@@ -863,14 +863,14 @@ remov_preq() {
       ;;
     *)
       cd $ESRC/$ICNV
-      sudo make uninstall
-      make maintainer-clean
+      sudo make uninstall &>/dev/null
+      make maintainer-clean &>/dev/null
       cd .. && rm -rf $ESRC/$ICNV
       sudo rm -rf /usr/local/bin/iconv
 
       echo
       cd $ESRC/rlottie
-      sudo ninja -C build uninstall
+      sudo ninja -C build uninstall &>/dev/null
       cd .. && rm -rf rlottie
       echo
       ;;
@@ -1148,11 +1148,6 @@ uninstall_e23() {
 
   rm -rf $HOME/.cache/ebuilds
   rm -rf $ESRC/glibc-*
-
-  mv -f $DOCDIR/installed_pkgs.txt $DOCDIR/inst_pkgs_bak.txt
-  mv -f $DOCDIR/installed_manually_pkgs.txt $DOCDIR/inst_m_pkgs_bak.txt
-  mv -f $DOCDIR/installed_repos.txt $DOCDIR/inst_repos_bak.txt
-
   sudo rm -rf /usr/lib/libintl.so
   sudo ldconfig
   sudo updatedb
