@@ -50,9 +50,9 @@ DEPS="aspell build-essential ccache check cmake cowsay ddd \
 doxygen faenza-icon-theme fonts-noto gstreamer1.0-libav \
 gstreamer1.0-plugins-bad gstreamer1.0-plugins-good \
 gstreamer1.0-plugins-ugly imagemagick libasound2-dev \
-libblkid-dev libbluetooth-dev libcogl-gles2-dev \
-libexif-dev libfontconfig1-dev libfreetype6-dev \
-libfribidi-dev libgeoclue-2-dev libgif-dev \
+libavahi-client-dev libblkid-dev libbluetooth-dev \
+libcogl-gles2-dev libexif-dev libfontconfig1-dev \
+libfreetype6-dev libfribidi-dev libgeoclue-2-dev libgif-dev \
 libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
 libharfbuzz-dev libi2c-dev libibus-1.0-dev libinput-dev \
 libjpeg-dev libluajit-5.1-dev liblz4-dev libmount-dev \
