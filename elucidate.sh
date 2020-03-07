@@ -919,6 +919,8 @@ uninstall_e23() {
   sudo rm -rf eolian*
   sudo rm -rf emotion*
   sudo rm -rf evas*
+  sudo rm -rf terminology*
+  sudo rm -rf ty*
 
   cd /usr/local/etc
   sudo rm -rf enlightenment
@@ -1046,6 +1048,10 @@ uninstall_e23() {
   sudo rm -rf rlottie*
   sudo rm -rf terminology*
 
+  cd /usr/local/man/man1
+  sudo rm -rf terminology*
+  sudo rm -rf ty*
+
   cd /usr/local/share
   sudo rm -rf dbus*
   sudo rm -rf ecore*
@@ -1074,9 +1080,10 @@ uninstall_e23() {
   sudo sed -i '/enlightenment_filemanager/d' mimeinfo.cache
   sudo sed -i '/ephoto/d' mimeinfo.cache
   sudo sed -i '/rage/d' mimeinfo.cache
+  sudo rm -rf terminology.desktop
 
   cd /usr/local/share/icons
-  sudo rm -rf Enlightenment-X
+  sudo rm -rf Enlightenment*
   sudo rm -rf elementary*
   sudo rm -rf terminology*
 
