@@ -61,10 +61,10 @@ libpoppler-cpp-dev libpoppler-dev libpoppler-private-dev \
 libpulse-dev libraw-dev librsvg2-dev libscim-dev \
 libsndfile1-dev libspectre-dev libssl-dev libsystemd-dev \
 libtiff5-dev libtool libudev-dev libudisks2-dev \
-libunibreak-dev libunwind-dev libvlc-dev libwebp-dev \
-libxcb-keysyms1-dev libxcursor-dev libxine2-dev \
-libxinerama-dev libxkbcommon-x11-dev libxkbfile-dev \
-libxrandr-dev libxss-dev libxtst-dev linux-tools-common \
+libunibreak-dev libunwind-dev libwebp-dev \
+libxcb-keysyms1-dev libxcursor-dev libxinerama-dev \
+libxkbcommon-x11-dev libxkbfile-dev libxrandr-dev \
+libxss-dev libxtst-dev linux-tools-common \
 linux-tools-$(uname -r) lolcat manpages-dev \
 manpages-posix-dev meson mlocate ninja-build texlive-base \
 unity-greeter-badges valgrind wayland-protocols wmctrl \
