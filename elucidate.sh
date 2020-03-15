@@ -2,9 +2,9 @@
 
 # ELUCIDATE.SH
 
-# This Bash script allows you to easily and safely install Enlightenment 23
+# This Bash script allows you to easily and safely install Enlightenment 24
 # along with E-apps aimed at advanced users on Ubuntu Focal Fossa;
-# or helps you perform a clean uninstall of E23.
+# or helps you perform a clean uninstall of E24.
 
 # To execute the script:
 
@@ -74,7 +74,7 @@ xwayland zenity"
 # Latest source code.
 CLONEFL="git clone https://git.enlightenment.org/core/efl.git"
 CLONETY="git clone https://git.enlightenment.org/apps/terminology.git"
-CLONE23="git clone https://git.enlightenment.org/core/enlightenment.git"
+CLONE24="git clone https://git.enlightenment.org/core/enlightenment.git"
 CLONEPH="git clone https://git.enlightenment.org/apps/ephoto.git"
 CLONERG="git clone https://git.enlightenment.org/apps/rage.git"
 CLONEVI="git clone https://git.enlightenment.org/apps/evisum.git"
@@ -109,12 +109,12 @@ beep_ok() {
 sel_menu() {
   if [ $INPUT -lt 1 ]; then
     echo
-    printf "1. $BDG%s $OFF%s\n\n" "INSTALL Enlightenment 23 from the master branch"
-    printf "2. $BDG%s $OFF%s\n\n" "Update and REBUILD Enlightenment 23"
-    printf "3. $BDG%s $OFF%s\n\n" "Update and rebuild E23 in RELEASE mode"
-    printf "4. $BDY%s $OFF%s\n\n" "Update and rebuild E23 with WAYLAND support"
-    printf "5. $BDY%s $OFF%s\n\n" "Update and rebuild E23 for DEBUGGING purposes"
-    printf "6. $BDR%s $OFF%s\n\n" "UNINSTALL all Enlightenment 23 programs"
+    printf "1. $BDG%s $OFF%s\n\n" "INSTALL Enlightenment 24 from the master branch"
+    printf "2. $BDG%s $OFF%s\n\n" "Update and REBUILD Enlightenment 24"
+    printf "3. $BDG%s $OFF%s\n\n" "Update and rebuild E24 in RELEASE mode"
+    printf "4. $BDY%s $OFF%s\n\n" "Update and rebuild E24 with WAYLAND support"
+    printf "5. $BDY%s $OFF%s\n\n" "Update and rebuild E24 for DEBUGGING purposes"
+    printf "6. $BDR%s $OFF%s\n\n" "UNINSTALL all Enlightenment 24 programs"
 
     # Hints.
     # 1/2: Plain build with well tested default values.
@@ -204,7 +204,7 @@ e_tokens() {
   if [ "$TOKEN" -gt 3 ]; then
     echo
     beep_question
-    read -t 12 -p "Do you want to back up your E23 settings now? [y/N] " answer
+    read -t 12 -p "Do you want to back up your E24 settings now? [y/N] " answer
     case $answer in
       [yY])
         e_bkp
@@ -226,7 +226,7 @@ build_plain() {
   sudo ldconfig
 
   for I in $PROG_MN; do
-    cd $ESRC/e23/$I
+    cd $ESRC/e24/$I
     printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
 
     case $I in
@@ -269,7 +269,7 @@ rebuild_plain() {
   for I in $PROG_MN; do
     elap_start
 
-    cd $ESRC/e23/$I
+    cd $ESRC/e24/$I
     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
     git reset --hard &>/dev/null
     git pull
@@ -320,7 +320,7 @@ rebuild_optim() {
   for I in $PROG_MN; do
     elap_start
 
-    cd $ESRC/e23/$I
+    cd $ESRC/e24/$I
     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
     git reset --hard &>/dev/null
     git pull
@@ -353,7 +353,7 @@ rebuild_optim() {
 
   for I in $PROG_AT; do
     elap_start
-    cd $ESRC/e23/$I
+    cd $ESRC/e24/$I
 
     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
     sudo make distclean &>/dev/null
@@ -390,7 +390,7 @@ rebuild_wld() {
   for I in $PROG_MN; do
     elap_start
 
-    cd $ESRC/e23/$I
+    cd $ESRC/e24/$I
     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
     git reset --hard &>/dev/null
     git pull
@@ -425,7 +425,7 @@ rebuild_wld() {
 
   for I in $PROG_AT; do
     elap_start
-    cd $ESRC/e23/$I
+    cd $ESRC/e24/$I
 
     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
     sudo make distclean &>/dev/null
@@ -467,7 +467,7 @@ rebuild_debug_mn() {
   sudo ldconfig
 
   for I in $PROG_MN; do
-    cd $ESRC/e23/$I
+    cd $ESRC/e24/$I
     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
     git reset --hard &>/dev/null
     git pull
@@ -502,7 +502,7 @@ rebuild_debug_at() {
 
   for I in $PROG_AT; do
     elap_start
-    cd $ESRC/e23/$I
+    cd $ESRC/e24/$I
 
     printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
     sudo make distclean &>/dev/null
@@ -630,15 +630,15 @@ install_now() {
   get_preq
 
   cd $HOME
-  mkdir -p $ESRC/e23
-  cd $ESRC/e23
+  mkdir -p $ESRC/e24
+  cd $ESRC/e24
 
   printf "\n\n$BLD%s $OFF%s\n\n" "Fetching source code from the Enlightened git repositories..."
   $CLONEFL
   echo
   $CLONETY
   echo
-  $CLONE23
+  $CLONE24
   echo
   $CLONEPH
   echo
@@ -801,7 +801,7 @@ debug_go() {
 
       # Run ./xdebug.sh --help for options (e.g. append "--dbg-mode=d" to the command below
       # if you want to use DDD).
-      cd $ESRC/e23/enlightenment && ./xdebug.sh
+      cd $ESRC/e24/enlightenment && ./xdebug.sh
       printf "\n$BDY%s %s" "Please check /var/crash for core dumps,"
       printf "\n$BDY%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home directory."
       ;;
@@ -813,7 +813,7 @@ debug_go() {
       printf "\n$BDY%s $OFF%s\n" "You may need to enter q to end the debugging session (quit gdb)."
       sleep 6
 
-      cd $ESRC/e23/enlightenment && ./xdebug.sh
+      cd $ESRC/e24/enlightenment && ./xdebug.sh
       printf "\n$BDY%s %s" "Please check /var/crash for core dumps,"
       printf "\n$BDY%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home directory."
       ;;
@@ -874,7 +874,7 @@ remov_preq() {
   fi
 }
 
-uninstall_e23() {
+uninstall_e24() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
 
   clear
@@ -883,11 +883,11 @@ uninstall_e23() {
   cd $HOME
 
   for I in $PROG_AT; do
-    cd $ESRC/e23/$I && remov_eprog_at
+    cd $ESRC/e24/$I && remov_eprog_at
   done
 
   for I in $PROG_MN; do
-    cd $ESRC/e23/$I && remov_eprog_mn
+    cd $ESRC/e24/$I && remov_eprog_mn
   done
 
   cd /etc
@@ -1092,7 +1092,7 @@ uninstall_e23() {
   sudo rm -rf enlightenment.desktop
 
   cd $HOME
-  rm -rf $ESRC/e23
+  rm -rf $ESRC/e24
   rm -rf $SCRFLR
   rm -rf .e
   rm -rf .elementary
@@ -1180,7 +1180,7 @@ main() {
   elif [ $INPUT == 5 ]; then
     debug_go
   elif [ $INPUT == 6 ]; then
-    uninstall_e23
+    uninstall_e24
   else
     beep_exit
     exit 1
