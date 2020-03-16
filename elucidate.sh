@@ -444,6 +444,7 @@ rebuild_wld() {
 rebuild_debug_mn() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   export LC_ALL=C
+  export EINA_LOG_BACKTRACE=999
 
   # Temporary tweaks until next reboot.
   ulimit -c unlimited
@@ -499,6 +500,7 @@ rebuild_debug_at() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   export LC_ALL=C
   export CFLAGS="-O2 -ffast-math -march=native -g -ggdb"
+  export EINA_LOG_BACKTRACE=999
 
   for I in $PROG_AT; do
     elap_start
