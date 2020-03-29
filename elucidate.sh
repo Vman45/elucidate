@@ -739,7 +739,7 @@ release_go() {
 
 wld_go() {
   clear
-  printf "\n$BDY%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: WAYLAND BUILD *"
+  printf "\n$BDG%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: WAYLAND BUILD *"
 
   cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
   chmod +x $HOME/.local/bin/elucidate.sh
