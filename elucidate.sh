@@ -112,7 +112,7 @@ sel_menu() {
     printf "1. $BDG%s $OFF%s\n\n" "INSTALL Enlightenment 24 from the master branch"
     printf "2. $BDG%s $OFF%s\n\n" "Update and REBUILD Enlightenment 24"
     printf "3. $BDG%s $OFF%s\n\n" "Update and rebuild E24 in RELEASE mode"
-    printf "4. $BDY%s $OFF%s\n\n" "Update and rebuild E24 with WAYLAND support"
+    printf "4. $BDG%s $OFF%s\n\n" "Update and rebuild E24 with WAYLAND support"
     printf "5. $BDY%s $OFF%s\n\n" "Update and rebuild E24 for DEBUGGING purposes"
     printf "6. $BDR%s $OFF%s\n\n" "UNINSTALL all Enlightenment 24 programs"
 
