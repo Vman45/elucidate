@@ -52,8 +52,8 @@ gstreamer1.0-plugins-bad gstreamer1.0-plugins-good \
 gstreamer1.0-plugins-ugly imagemagick libasound2-dev \
 libavahi-client-dev libblkid-dev libbluetooth-dev \
 libegl1-mesa-dev libexif-dev libfontconfig1-dev \
-libfreetype6-dev libfribidi-dev libgeoclue-2-dev libgif-dev \
-libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
+libfreetype6-dev libfribidi-dev libgbm-dev libgeoclue-2-dev \
+libgif-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
 libharfbuzz-dev libi2c-dev libibus-1.0-dev libinput-dev \
 libjpeg-dev libluajit-5.1-dev liblz4-dev libmount-dev \
 libopenjp2-7-dev libosmesa6-dev libpam0g-dev \
