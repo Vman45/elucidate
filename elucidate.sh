@@ -248,6 +248,19 @@ build_plain() {
     $SNIN || true
     sudo ldconfig
   done
+
+   for I in $PROG_AT; do
+    elap_start
+    cd $ESRC/e24/$I
+    printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
+
+    $GEN
+    make || true
+    beep_attention
+    $SMIL || true
+    sudo ldconfig
+    elap_stop
+  done
 }
 
 rebuild_plain() {
@@ -295,6 +308,23 @@ rebuild_plain() {
     $SNIN || true
     sudo ldconfig
 
+    elap_stop
+  done
+
+   for I in $PROG_AT; do
+    elap_start
+    cd $ESRC/e24/$I
+
+    printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
+    sudo make distclean &>/dev/null
+    git reset --hard &>/dev/null
+    git pull
+
+    $GEN
+    make || true
+    beep_attention
+    $SMIL || true
+    sudo ldconfig
     elap_stop
   done
 }
