@@ -1186,6 +1186,7 @@ uninstall_e24() {
         sleep 1
         ;;
       *)
+        echo
         rm -rf $HOME/.bash_aliases && source $HOME/.bashrc
         sleep 1
         ;;
