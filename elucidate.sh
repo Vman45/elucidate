@@ -385,6 +385,7 @@ rebuild_optim_mn() {
 rebuild_optim_at() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   export CFLAGS="-O2 -ffast-math -march=native"
+
   for I in $PROG_AT; do
     elap_start
     cd $ESRC/e24/$I
@@ -461,6 +462,7 @@ rebuild_wld_mn() {
 rebuild_wld_at() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   export CFLAGS="-O2 -ffast-math -march=native"
+
   for I in $PROG_AT; do
     elap_start
     cd $ESRC/e24/$I
