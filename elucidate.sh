@@ -991,6 +991,7 @@ uninstall_e24() {
   sudo rm -rf libeolian*
   sudo rm -rf libethumb*
   sudo rm -rf libevas*
+  sudo rm -rf libexactness*
   sudo rm -rf librlottie*
   sudo rm -rf rage*
 
