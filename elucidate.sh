@@ -1040,6 +1040,7 @@ uninstall_e24() {
   sudo rm -rf ethumb*
   sudo rm -rf evas*
   sudo rm -rf everything*
+  sudo rm -rf exactness*
   sudo rm -rf rage*
   sudo rm -rf rlottie*
   sudo rm -rf terminology*
