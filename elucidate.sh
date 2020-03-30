@@ -249,7 +249,7 @@ build_plain() {
     sudo ldconfig
   done
 
-   for I in $PROG_AT; do
+  for I in $PROG_AT; do
     elap_start
     cd $ESRC/e24/$I
     printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
@@ -311,7 +311,7 @@ rebuild_plain() {
     elap_stop
   done
 
-   for I in $PROG_AT; do
+  for I in $PROG_AT; do
     elap_start
     cd $ESRC/e24/$I
 
@@ -329,7 +329,7 @@ rebuild_plain() {
   done
 }
 
-rebuild_optim() {
+rebuild_optim_mn() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   e_tokens
   elap_start
@@ -380,7 +380,11 @@ rebuild_optim() {
 
     elap_stop
   done
+}
 
+rebuild_optim_at() {
+  ESRC=$(cat $HOME/.cache/ebuilds/storepath)
+  export CFLAGS="-O2 -ffast-math -march=native"
   for I in $PROG_AT; do
     elap_start
     cd $ESRC/e24/$I
@@ -399,7 +403,7 @@ rebuild_optim() {
   done
 }
 
-rebuild_wld() {
+rebuild_wld_mn() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   e_tokens
   elap_start
@@ -452,7 +456,11 @@ rebuild_wld() {
 
     elap_stop
   done
+}
 
+rebuild_wld_at() {
+  ESRC=$(cat $HOME/.cache/ebuilds/storepath)
+  export CFLAGS="-O2 -ffast-math -march=native"
   for I in $PROG_AT; do
     elap_start
     cd $ESRC/e24/$I
@@ -746,7 +754,8 @@ release_go() {
   chmod +x $HOME/.local/bin/elucidate.sh
   sleep 1
 
-  rebuild_optim
+  rebuild_optim_mn
+  rebuild_optim_at
 
   sudo mkdir -p /etc/enlightenment
   sudo ln -sf /usr/local/etc/enlightenment/sysactions.conf /etc/enlightenment/sysactions.conf
@@ -775,7 +784,8 @@ wld_go() {
   chmod +x $HOME/.local/bin/elucidate.sh
   sleep 1
 
-  rebuild_wld
+  rebuild_wld_mn
+  rebuild_wld_at
 
   sudo mkdir -p /usr/share/wayland-sessions
   sudo ln -sf /usr/local/share/wayland-sessions/enlightenment.desktop \
