@@ -826,6 +826,7 @@ debug_go() {
 
   beep_attention
   zen_debug 2>/dev/null
+  bin_deps
   rebuild_debug_mn
   rebuild_debug_at
   echo
