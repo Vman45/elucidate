@@ -3,7 +3,7 @@
 # ELUCIDATE.SH
 
 # This Bash script allows you to easily and safely install Enlightenment 24
-# along with E-apps aimed at advanced users on Ubuntu Focal Fossa;
+# along with E-apps aimed at advanced users, on Ubuntu Focal Fossa;
 # or helps you perform a clean uninstall of E24.
 
 # To execute the script:
@@ -174,8 +174,8 @@ elap_stop() {
 }
 
 e_bkp() {
-  # Timestamp: See man date to convert epoch to human-readable date or
-  # visit https://www.epochconverter.com/
+  # Timestamp: See man date to convert epoch to human-readable date
+  # or visit https://www.epochconverter.com/
   TSTAMP=$(date +%s)
   mkdir -p $DOCDIR/ebackups
 
@@ -492,7 +492,7 @@ rebuild_debug_mn() {
   git pull
   echo
   sudo chown $USER build/.ninja*
-  meson configure -Dbuildtype=debugoptimized build
+  meson configure -Dbuildtype=debug build
   ninja -C build || true
   $SNIN || true
   sudo ldconfig
@@ -506,17 +506,17 @@ rebuild_debug_mn() {
     case $I in
       efl)
         sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=debugoptimized build
+        meson configure -Dbuildtype=debug build
         ninja -C build || mng_err
         ;;
       enlightenment)
         sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=debugoptimized build
+        meson configure -Dbuildtype=debug build
         ninja -C build || mng_err
         ;;
       *)
         sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=debugoptimized build
+        meson configure -Dbuildtype=debug build
         ninja -C build || true
         ;;
     esac
@@ -529,7 +529,7 @@ rebuild_debug_mn() {
 rebuild_debug_at() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   export LC_ALL=C
-  export CFLAGS="-O2 -ffast-math -march=native -g -ggdb"
+  export CFLAGS="-O0 -g -ggdb"
   export EINA_LOG_BACKTRACE=999
 
   for I in $PROG_AT; do
