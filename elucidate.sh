@@ -529,7 +529,7 @@ rebuild_debug_mn() {
 rebuild_debug_at() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   export LC_ALL=C
-  export CFLAGS="-O0 -g -ggdb"
+  export CFLAGS="-O0 -march=native -g -ggdb"
   export EINA_LOG_BACKTRACE=999
 
   for I in $PROG_AT; do
