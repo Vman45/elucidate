@@ -479,6 +479,7 @@ rebuild_debug_mn() {
   export EINA_LOG_BACKTRACE=999
   ulimit -c unlimited
   echo "/var/crash/core.%e.%p.%h.%t" | sudo tee /proc/sys/kernel/core_pattern &>/dev/null
+  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope &>/dev/null
 
   # You can safely ignore the "NOTICE" message.
   cd $ESRC
