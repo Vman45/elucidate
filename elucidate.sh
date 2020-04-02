@@ -478,8 +478,8 @@ rebuild_debug_mn() {
   export LC_ALL=C
   export EINA_LOG_BACKTRACE=999
   ulimit -c unlimited
-  echo "/var/crash/core.%e.%p.%h.%t" | sudo tee /proc/sys/kernel/core_pattern &>/dev/null
-  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope &>/dev/null
+  echo "/var/crash/core.%e.%p.%h.%t" | sudo tee /proc/sys/kernel/core_pattern
+  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
 
   # You can safely ignore the "NOTICE" message.
   cd $ESRC
@@ -530,7 +530,7 @@ rebuild_debug_mn() {
 rebuild_debug_at() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   export LC_ALL=C
-  export CFLAGS="-O0 -march=native -g -ggdb"
+  export CFLAGS="-O0 -g -ggdb3"
   export EINA_LOG_BACKTRACE=999
 
   for I in $PROG_AT; do
