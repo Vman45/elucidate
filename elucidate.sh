@@ -21,6 +21,7 @@
 
 # Please consider sending us a tip via https://www.paypal.me/PJGuillaumie
 # or starring the repository to show your support.
+# Cheers!
 
 # Script debugging.
 #export PS4='+ $LINENO: '
