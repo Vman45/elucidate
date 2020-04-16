@@ -23,6 +23,9 @@
 # or starring the repository to show your support.
 # Cheers!
 
+# Eyecandy for your enlightened desktop:
+# https://extra.enlightenment.org/themes/
+
 # Script debugging.
 #export PS4='+ $LINENO: '
 #export LC_ALL=C
