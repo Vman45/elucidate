@@ -830,7 +830,7 @@ debug_go() {
 
   # For serious debugging, please refer to the following documents.
   # https://www.enlightenment.org/contrib/efl-debug
-  # https://www.enlightenment.org/contrib/enlightenment-debug.md
+  # https://www.enlightenment.org/contrib/enlightenment-debug
   beep_question
   read -t 12 -p "Do you want to test run Enlightenment in a nested window now? [Y/n] " answer
   case $answer in
