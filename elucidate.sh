@@ -1141,10 +1141,10 @@ uninstall_e24() {
   rm -rf .cache/efreet
   rm -rf .cache/ephoto
   rm -rf .cache/evas_gl_common_caches
-  rm -rf .cache/evisum
   rm -rf .cache/rage
   rm -rf .config/enventor
   rm -rf .config/ephoto
+  rm -rf .config/evisum
   rm -rf .config/rage
   rm -rf .config/terminology
 
