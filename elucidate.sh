@@ -52,13 +52,12 @@ ICNV=libiconv-1.16
 # Build dependencies, recommended and script-related packages.
 DEPS="aspell build-essential ccache check cmake cowsay ddcutil ddd doxygen faenza-icon-theme \
 fonts-noto gstreamer1.0-libav gstreamer1.0-plugins-bad gstreamer1.0-plugins-good \
-gstreamer1.0-plugins-ugly imagemagick libasound2-dev libavahi-client-dev \
-libblkid-dev libbluetooth-dev libegl1-mesa-dev libexif-dev libfontconfig1-dev \
-libdrm-dev libfreetype6-dev libfribidi-dev libgbm-dev libgeoclue-2-dev libgif-dev \
-libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libharfbuzz-dev libi2c-dev \
-libibus-1.0-dev libinput-dev libjpeg-dev libluajit-5.1-dev liblz4-dev libmount-dev \
-libopenjp2-7-dev libosmesa6-dev libpam0g-dev libpoppler-cpp-dev libpoppler-dev \
-libpoppler-private-dev libpulse-dev libraw-dev librsvg2-dev libscim-dev \
+gstreamer1.0-plugins-ugly imagemagick libasound2-dev libblkid-dev libbluetooth-dev \
+libegl1-mesa-dev libexif-dev libfontconfig1-dev libdrm-dev libfreetype6-dev libfribidi-dev \
+libgbm-dev libgeoclue-2-dev libgif-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
+libharfbuzz-dev libi2c-dev libibus-1.0-dev libinput-dev libjpeg-dev libluajit-5.1-dev \
+liblz4-dev libmount-dev libopenjp2-7-dev libosmesa6-dev libpam0g-dev libpoppler-cpp-dev \
+libpoppler-dev libpoppler-private-dev libpulse-dev libraw-dev librsvg2-dev libscim-dev \
 libsndfile1-dev libspectre-dev libssl-dev libsystemd-dev libtiff5-dev libtool \
 libudev-dev libudisks2-dev libunibreak-dev libunwind-dev libwebp-dev \
 libxcb-keysyms1-dev libxcursor-dev libxinerama-dev libxkbcommon-x11-dev \
@@ -356,7 +355,7 @@ rebuild_optim_mn() {
         sudo chown $USER build/.ninja*
         meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
           -Dbindings=luajit,cxx -Dbuild-tests=false -Dbuild-examples=false \
-          -Devas-loaders-disabler=json -Dbuildtype=release build
+          -Dbuildtype=release build
         ninja -C build || mng_err
         ;;
       enlightenment)
@@ -432,7 +431,6 @@ rebuild_wld_mn() {
         meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
           -Dbindings=luajit,cxx -Ddrm=true -Dwl=true -Dopengl=es-egl \
           -Dbuild-tests=false -Dbuild-examples=false \
-          -Devas-loaders-disabler=json \
           -Dbuildtype=release build
         ninja -C build || mng_err
         ;;
