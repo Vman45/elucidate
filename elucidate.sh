@@ -1156,7 +1156,7 @@ uninstall_e24() {
   if [ -d $HOME/.ccache ]; then
     echo
     beep_question
-    read -t 12 -p "Remove the hidden ccache folder (compiler cache)? [y/N] " answer
+    read -t 12 -p "Remove the ccache folder? [y/N] " answer
     case $answer in
       [yY])
         ccache -C
@@ -1174,7 +1174,7 @@ uninstall_e24() {
   if [ -f $HOME/.bash_aliases ]; then
     echo
     beep_question
-    read -t 12 -p "Remove the hidden bash_aliases file? [Y/n] " answer
+    read -t 12 -p "Remove the bash_aliases file? [Y/n] " answer
     case $answer in
       [yY])
         rm -rf $HOME/.bash_aliases && source $HOME/.bashrc
