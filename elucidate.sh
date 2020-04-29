@@ -255,6 +255,7 @@ build_plain() {
 
 rebuild_plain() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
+  bin_deps
   e_tokens
   elap_start
 
@@ -321,6 +322,7 @@ rebuild_plain() {
 
 rebuild_optim_mn() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
+  bin_deps
   e_tokens
   elap_start
 
@@ -396,6 +398,7 @@ rebuild_optim_at() {
 
 rebuild_wld_mn() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
+  bin_deps
   e_tokens
   elap_start
 
