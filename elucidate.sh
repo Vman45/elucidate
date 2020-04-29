@@ -26,11 +26,6 @@
 # Eyecandy for your enlightened desktop:
 # https://extra.enlightenment.org/themes/
 
-# Script debugging.
-#export PS4='+ $LINENO: '
-#export LC_ALL=C
-#set -vx
-
 BLD="\e[1m"
 ITA="\e[3m"
 BDR="\e[1;31m"
