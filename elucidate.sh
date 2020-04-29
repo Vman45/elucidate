@@ -61,7 +61,7 @@ linux-tools-common linux-tools-$(uname -r) lolcat manpages-dev manpages-posix-de
 mlocate ninja-build texlive-base unity-greeter-badges valgrind wayland-protocols \
 wmctrl xserver-xephyr xwayland zenity"
 
-# Latest source code.
+# Latest development code.
 CLONEFL="git clone https://git.enlightenment.org/core/efl.git"
 CLONETY="git clone https://git.enlightenment.org/apps/terminology.git"
 CLONE24="git clone https://git.enlightenment.org/core/enlightenment.git"
