@@ -1135,9 +1135,11 @@ uninstall_e24() {
 
   cd $HOME
   rm -rf $ESRC/e24
+  rm -rf $ESRC/glibc-*
   rm -rf $SCRFLR
   rm -rf .e
   rm -rf .elementary
+  rm -rf .cache/ebuilds
   rm -rf .cache/efreet
   rm -rf .cache/ephoto
   rm -rf .cache/evas_gl_common_caches
@@ -1148,10 +1150,7 @@ uninstall_e24() {
   rm -rf .config/rage
   rm -rf .config/terminology
 
-  find /usr/local/share/locale/*/LC_MESSAGES 2>/dev/null | while read -r I; do
-    echo "$I" \
-      | xargs sudo rm -rf $(grep -E 'efl|enlightenment|enventor|ephoto|evisum|libiconv|terminology')
-  done
+  remov_preq
 
   if [ -d $HOME/.ccache ]; then
     echo
@@ -1192,10 +1191,11 @@ uninstall_e24() {
     esac
   fi
 
-  remov_preq
+  find /usr/local/share/locale/*/LC_MESSAGES 2>/dev/null | while read -r I; do
+    echo "$I" \
+      | xargs sudo rm -rf $(grep -E 'efl|enlightenment|enventor|ephoto|evisum|libiconv|terminology')
+  done
 
-  rm -rf $HOME/.cache/ebuilds
-  rm -rf $ESRC/glibc-*
   sudo rm -rf /usr/lib/libintl.so
   sudo ldconfig
   sudo updatedb
