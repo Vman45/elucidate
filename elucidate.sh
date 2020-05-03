@@ -3,7 +3,7 @@
 # ELUCIDATE.SH
 
 # This Bash script allows you to easily and safely install Enlightenment 24
-# along with E-apps aimed at advanced users, on Ubuntu Focal Fossa;
+# along with EFL-based apps aimed at advanced users, on Ubuntu Focal Fossa;
 # or helps you perform a clean uninstall of E24.
 
 # To execute the script:
@@ -25,6 +25,9 @@
 
 # Eyecandy for your enlightened desktop:
 # https://extra.enlightenment.org/themes/
+
+# LOCAL VARIABLES
+# ---------------
 
 BLD="\e[1m"
 ITA="\e[3m"
@@ -72,6 +75,9 @@ CLONEVE="git clone https://git.enlightenment.org/tools/enventor.git"
 
 PROG_MN="efl terminology enlightenment ephoto evisum rage"
 PROG_AT="enventor"
+
+# FUNCTIONS
+# ---------
 
 zen_debug() {
   zenity --no-wrap --info --text "
@@ -598,6 +604,9 @@ do_bsh_alias() {
     touch $HOME/.bash_aliases
 
     cat >$HOME/.bash_aliases <<EOF
+    # GLOBAL VARIABLES
+    # ----------------
+
     # Compiler and linker flags.
     export CC="ccache gcc"
     export CXX="ccache g++"
@@ -607,7 +616,7 @@ do_bsh_alias() {
     export LDFLAGS=-L/usr/local/lib
     export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 
-    # Parallel build.
+    # Parallel build: It's your call...
     #export MAKE="make -j$(($(getconf _NPROCESSORS_ONLN) * 2))"
 
     # This script adds the ~/.local/bin directory to your PATH environment variable if required.
