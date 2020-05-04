@@ -1,6 +1,6 @@
 # elucidate.sh
 
-An easy-to-understand, easy-to-edit Bash script to build and install Enlightenment 24 on **Ubuntu Focal Fossa** :kiss:
+An easy-to-use, easy-to-edit Bash script to build and install Enlightenment 24 on **Ubuntu Focal Fossa** :kiss:
 
 ## Get started
 
