@@ -3,7 +3,7 @@
 # ELUCIDATE.SH
 
 # This Bash script allows you to easily and safely install Enlightenment 24
-# along with EFL-based apps aimed at advanced users, on Ubuntu Focal Fossa;
+# along with other EFL-based apps, on Ubuntu Focal Fossa;
 # or helps you perform a clean uninstall of E24.
 
 # To execute the script:
