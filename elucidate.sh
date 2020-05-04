@@ -74,6 +74,7 @@ CLONERG="git clone https://git.enlightenment.org/apps/rage.git"
 CLONEVI="git clone https://git.enlightenment.org/apps/evisum.git"
 CLONEVE="git clone https://git.enlightenment.org/tools/enventor.git"
 
+# ('MN' stands for Meson, 'AT' refers to Autotools)
 PROG_MN="efl terminology enlightenment ephoto evisum rage"
 PROG_AT="enventor"
 
