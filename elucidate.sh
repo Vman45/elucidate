@@ -23,18 +23,18 @@
 # or starring the repository to show your support.
 # Cheers!
 
-# Eyecandy for your enlightened desktop:
-# https://extra.enlightenment.org/themes/
+# Eyecandy for your enlightened desktop: https://extra.enlightenment.org/themes/
+# Screenshots: https://www.enlightenment.org/ss/
 
 # LOCAL VARIABLES
 # ---------------
 
-BLD="\e[1m"
-ITA="\e[3m"
-BDR="\e[1;31m"
-BDG="\e[1;32m"
-BDY="\e[1;33m"
-OFF="\e[0m"
+BLD="\e[1m"    # Bold text.
+ITA="\e[3m"    # Italic text.
+BDR="\e[1;31m" # Bold red text.
+BDG="\e[1;32m" # Bold green text.
+BDY="\e[1;33m" # Bold yellow text.
+OFF="\e[0m"    # Turn off ANSI colors and formatting.
 
 PREFIX=/usr/local
 DLDIR=$(xdg-user-dir DOWNLOAD)
@@ -199,6 +199,7 @@ e_tokens() {
   TOKEN=$(wc -l <$HOME/.cache/ebuilds/etokens)
   if [ "$TOKEN" -gt 3 ]; then
     echo
+    # Questions: Enter either y or n, or press Enter to accept the default values.
     beep_question
     read -t 12 -p "Do you want to back up your E24 settings now? [y/N] " answer
     case $answer in
