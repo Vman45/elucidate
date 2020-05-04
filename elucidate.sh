@@ -16,7 +16,7 @@
 # Subsequent runs.
 # Open Terminal and simply type elucidate.sh
 
-# ELUCIDATE.SH is written by batden@sfr.fr and carlasensa@sfr.fr,
+# ELUCIDATE.SH is written and maintained by batden@sfr.fr and carlasensa@sfr.fr,
 # feel free to use this script as you see fit.
 
 # Please consider sending us a tip via https://www.paypal.me/PJGuillaumie
@@ -178,7 +178,7 @@ elap_stop() {
 }
 
 e_bkp() {
-  # Timestamp: See man date to convert epoch to human-readable date
+  # Timestamp: See the date man page to convert epoch to human-readable date
   # or visit https://www.epochconverter.com/
   TSTAMP=$(date +%s)
   mkdir -p $DOCDIR/ebackups
