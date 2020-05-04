@@ -20,9 +20,10 @@
 # feel free to use this script as you see fit.
 
 # Please consider sending us a tip via https://www.paypal.me/PJGuillaumie
-# or starring the repository to show your support.
+# or starring our repositories to show your support.
 # Cheers!
 
+# Cool links.
 # Eyecandy for your enlightened desktop: https://extra.enlightenment.org/themes/
 # Screenshots: https://www.enlightenment.org/ss/
 
