@@ -641,6 +641,12 @@ set_p_src() {
   sleep 1
 }
 
+do_lnk() {
+  sudo ln -sf /usr/local/etc/enlightenment/sysactions.conf /etc/enlightenment/sysactions.conf
+  sudo ln -sf /usr/local/etc/enlightenment/system.conf /etc/enlightenment/system.conf
+  sudo ln -sf /usr/local/etc/xdg/menus/e-applications.menu /etc/xdg/menus/e-applications.menu
+}
+
 get_preq() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   cd $DLDIR
@@ -703,10 +709,7 @@ install_now() {
   mkdir -p $HOME/.elementary/themes
 
   sudo mkdir -p /etc/enlightenment
-  sudo ln -sf /usr/local/etc/enlightenment/sysactions.conf /etc/enlightenment/sysactions.conf
-  sudo ln -sf /usr/local/etc/enlightenment/system.conf /etc/enlightenment/system.conf
-
-  sudo ln -sf /usr/local/etc/xdg/menus/e-applications.menu /etc/xdg/menus/e-applications.menu
+  do_lnk
 
   sudo ln -sf /usr/local/share/xsessions/enlightenment.desktop \
     /usr/share/xsessions/enlightenment.desktop
@@ -739,10 +742,10 @@ update_go() {
   rebuild_plain
 
   sudo mkdir -p /etc/enlightenment
-  sudo ln -sf /usr/local/etc/enlightenment/sysactions.conf /etc/enlightenment/sysactions.conf
-  sudo ln -sf /usr/local/etc/enlightenment/system.conf /etc/enlightenment/system.conf
+  do_lnk
 
-  sudo ln -sf /usr/local/etc/xdg/menus/e-applications.menu /etc/xdg/menus/e-applications.menu
+  sudo ln -sf /usr/local/share/xsessions/enlightenment.desktop \
+    /usr/share/xsessions/enlightenment.desktop
 
   if [ -f /usr/share/wayland-sessions/enlightenment.desktop ]; then
     sudo rm -rf /usr/share/wayland-sessions/enlightenment.desktop
@@ -767,10 +770,7 @@ release_go() {
   rebuild_optim_at
 
   sudo mkdir -p /etc/enlightenment
-  sudo ln -sf /usr/local/etc/enlightenment/sysactions.conf /etc/enlightenment/sysactions.conf
-  sudo ln -sf /usr/local/etc/enlightenment/system.conf /etc/enlightenment/system.conf
-
-  sudo ln -sf /usr/local/etc/xdg/menus/e-applications.menu /etc/xdg/menus/e-applications.menu
+  do_lnk
 
   sudo ln -sf /usr/local/share/xsessions/enlightenment.desktop \
     /usr/share/xsessions/enlightenment.desktop
@@ -802,10 +802,7 @@ wld_go() {
     /usr/share/wayland-sessions/enlightenment.desktop
 
   sudo mkdir -p /etc/enlightenment
-  sudo ln -sf /usr/local/etc/enlightenment/sysactions.conf /etc/enlightenment/sysactions.conf
-  sudo ln -sf /usr/local/etc/enlightenment/system.conf /etc/enlightenment/system.conf
-
-  sudo ln -sf /usr/local/etc/xdg/menus/e-applications.menu /etc/xdg/menus/e-applications.menu
+  do_lnk
 
   sudo updatedb
   beep_ok
