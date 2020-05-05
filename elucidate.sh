@@ -641,12 +641,6 @@ set_p_src() {
   sleep 1
 }
 
-do_lnk() {
-  sudo ln -sf /usr/local/etc/enlightenment/sysactions.conf /etc/enlightenment/sysactions.conf
-  sudo ln -sf /usr/local/etc/enlightenment/system.conf /etc/enlightenment/system.conf
-  sudo ln -sf /usr/local/etc/xdg/menus/e-applications.menu /etc/xdg/menus/e-applications.menu
-}
-
 get_preq() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   cd $DLDIR
@@ -669,6 +663,12 @@ get_preq() {
   $SNIN || true
   sudo ldconfig
   echo
+}
+
+do_lnk() {
+  sudo ln -sf /usr/local/etc/enlightenment/sysactions.conf /etc/enlightenment/sysactions.conf
+  sudo ln -sf /usr/local/etc/enlightenment/system.conf /etc/enlightenment/system.conf
+  sudo ln -sf /usr/local/etc/xdg/menus/e-applications.menu /etc/xdg/menus/e-applications.menu
 }
 
 install_now() {
