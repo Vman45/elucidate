@@ -1144,7 +1144,7 @@ uninstall_e24() {
 
   cd $HOME
   rm -rf $ESRC/e24
-  rm -rf $ESRC/glibc-* &>/dev/null
+  rm -rf $ESRC/glibc-*
   rm -rf $SCRFLR
   rm -rf .e
   rm -rf .elementary
