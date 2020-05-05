@@ -249,7 +249,6 @@ build_plain() {
   done
 
   for I in $PROG_AT; do
-    elap_start
     cd $ESRC/e24/$I
     printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
 
@@ -258,7 +257,6 @@ build_plain() {
     beep_attention
     $SMIL || true
     sudo ldconfig
-    elap_stop
   done
 }
 
