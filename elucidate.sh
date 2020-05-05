@@ -4,7 +4,7 @@
 
 # This Bash script allows you to easily and safely install Enlightenment 24
 # along with other EFL-based apps, on Ubuntu Focal Fossa;
-# or helps you perform a clean uninstall of E24.
+# or will help you cleanly uninstall E24.
 
 # To execute the script:
 
