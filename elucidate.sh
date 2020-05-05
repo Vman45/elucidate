@@ -20,7 +20,7 @@
 # feel free to use this script as you see fit.
 
 # Please consider sending us a tip via https://www.paypal.me/PJGuillaumie
-# or starring our repositories to show your support.
+# or starring our repositories to show your support: https://github.com/batden
 # Cheers!
 
 # Cool links.
