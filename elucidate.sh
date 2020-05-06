@@ -927,7 +927,7 @@ uninstall_e24() {
   clear
   printf "\n\n$BDR%s %s\n\n" "* UNINSTALLING ENLIGHTENMENT DESKTOP *"
 
-  cd $HOME
+  cd $HOME || exit
 
   for I in $PROG_AT; do
     cd $ESRC/e24/$I && remov_eprog_at
@@ -937,13 +937,13 @@ uninstall_e24() {
     cd $ESRC/e24/$I && remov_eprog_mn
   done
 
-  cd /etc
+  cd /etc || exit
   sudo rm -rf enlightenment
 
-  cd /etc/xdg/menus
+  cd /etc/xdg/menus || exit
   sudo rm -rf e-applications.menu
 
-  cd /usr/local
+  cd /usr/local || exit
   sudo rm -rf ecore*
   sudo rm -rf edje*
   sudo rm -rf efl*
@@ -953,7 +953,7 @@ uninstall_e24() {
   sudo rm -rf eo*
   sudo rm -rf evas*
 
-  cd /usr/local/bin
+  cd /usr/local/bin || exit
   sudo rm -rf eina*
   sudo rm -rf efl*
   sudo rm -rf elua*
@@ -964,14 +964,14 @@ uninstall_e24() {
   sudo rm -rf terminology*
   sudo rm -rf ty*
 
-  cd /usr/local/etc
+  cd /usr/local/etc || exit
   sudo rm -rf enlightenment
 
-  cd /usr/local/include
+  cd /usr/local/include || exit
   sudo rm -rf -- *-1
   sudo rm -rf enlightenment
 
-  cd /usr/local/lib
+  cd /usr/local/lib || exit
   sudo rm -rf ecore*
   sudo rm -rf edje*
   sudo rm -rf eeze*
@@ -1006,7 +1006,7 @@ uninstall_e24() {
   sudo rm -rf libethumb*
   sudo rm -rf libevas*
 
-  cd /usr/local/lib/x86_64-linux-gnu
+  cd /usr/local/lib/x86_64-linux-gnu || exit
   sudo rm -rf ecore*
   sudo rm -rf edje*
   sudo rm -rf eeze*
@@ -1042,7 +1042,7 @@ uninstall_e24() {
   sudo rm -rf librlottie*
   sudo rm -rf rage*
 
-  cd /usr/local/lib/x86_64-linux-gnu/cmake
+  cd /usr/local/lib/x86_64-linux-gnu/cmake || exit
   sudo rm -rf Ecore*
   sudo rm -rf Edje*
   sudo rm -rf Eet*
@@ -1062,7 +1062,7 @@ uninstall_e24() {
   sudo rm -rf Ethumb*
   sudo rm -rf Evas*
 
-  cd /usr/local/lib/x86_64-linux-gnu/pkgconfig
+  cd /usr/local/lib/x86_64-linux-gnu/pkgconfig || exit
   sudo rm -rf ecore*
   sudo rm -rf ector*
   sudo rm -rf edje*
@@ -1092,11 +1092,11 @@ uninstall_e24() {
   sudo rm -rf rlottie*
   sudo rm -rf terminology*
 
-  cd /usr/local/man/man1
+  cd /usr/local/man/man1 || exit
   sudo rm -rf terminology*
   sudo rm -rf ty*
 
-  cd /usr/local/share
+  cd /usr/local/share || exit
   sudo rm -rf dbus*
   sudo rm -rf ecore*
   sudo rm -rf edje*
@@ -1120,27 +1120,27 @@ uninstall_e24() {
   sudo rm -rf terminology*
   sudo rm -rf wayland-sessions*
 
-  cd /usr/local/share/applications
+  cd /usr/local/share/applications || exit
   sudo sed -i '/enlightenment_filemanager/d' mimeinfo.cache
   sudo sed -i '/ephoto/d' mimeinfo.cache
   sudo sed -i '/rage/d' mimeinfo.cache
   sudo rm -rf terminology.desktop
 
-  cd /usr/local/share/icons
+  cd /usr/local/share/icons || exit
   sudo rm -rf Enlightenment*
   sudo rm -rf elementary*
   sudo rm -rf terminology*
 
-  cd /usr/share/dbus-1/services
+  cd /usr/share/dbus-1/services || exit
   sudo rm -rf org.enlightenment.Ethumb.service
 
-  cd /usr/share/wayland-sessions
+  cd /usr/share/wayland-sessions || exit
   sudo rm -rf enlightenment.desktop
 
-  cd /usr/share/xsessions
+  cd /usr/share/xsessions || exit
   sudo rm -rf enlightenment.desktop
 
-  cd $HOME
+  cd $HOME || exit
   rm -rf $ESRC/e24
   rm -rf $ESRC/glibc-*
   rm -rf $SCRFLR
