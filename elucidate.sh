@@ -889,14 +889,14 @@ remov_preq() {
     case $answer in
       [yY])
         echo
-        cd $ESRC/$ICNV
+        cd $ESRC/$ICNV || exit
         sudo make uninstall &>/dev/null
         make maintainer-clean &>/dev/null
         cd .. && rm -rf $ESRC/$ICNV
         sudo rm -rf /usr/local/bin/iconv
         echo
 
-        cd $ESRC/rlottie
+        cd $ESRC/rlottie || exit
         sudo ninja -C build uninstall &>/dev/null
         cd .. && rm -rf rlottie
         echo
@@ -905,14 +905,14 @@ remov_preq() {
         printf "\n%s\n\n" "(do not remove prerequisites... OK)"
         ;;
       *)
-        cd $ESRC/$ICNV
+        cd $ESRC/$ICNV || exit
         sudo make uninstall &>/dev/null
         make maintainer-clean &>/dev/null
         cd .. && rm -rf $ESRC/$ICNV
         sudo rm -rf /usr/local/bin/iconv
 
         echo
-        cd $ESRC/rlottie
+        cd $ESRC/rlottie || exit
         sudo ninja -C build uninstall &>/dev/null
         cd .. && rm -rf rlottie
         echo
