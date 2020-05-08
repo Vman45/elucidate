@@ -484,6 +484,7 @@ rebuild_debug_mn() {
   export LC_ALL=C
   export EINA_LOG_BACKTRACE=999
 
+  # Temporary tweaks until next reboot.
   ulimit -c unlimited
   echo "/var/crash/core.%e.%p.%h.%t" | sudo tee /proc/sys/kernel/core_pattern
   echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
