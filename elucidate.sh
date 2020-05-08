@@ -481,15 +481,16 @@ rebuild_wld_at() {
 }
 
 rebuild_debug_mn() {
-  ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   export LC_ALL=C
   export EINA_LOG_BACKTRACE=999
+
   ulimit -c unlimited
   echo "/var/crash/core.%e.%p.%h.%t" | sudo tee /proc/sys/kernel/core_pattern
   echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
 
-  # You can safely ignore the "NOTICE" message.
+  ESRC=$(cat $HOME/.cache/ebuilds/storepath)
   cd $ESRC
+  # You can safely ignore the "NOTICE" message...
   [[ $(ls | grep glibc[-]) ]] || apt source glibc
   rm -rf glibc_*
   sudo updatedb
@@ -535,10 +536,7 @@ rebuild_debug_mn() {
 }
 
 rebuild_debug_at() {
-  ESRC=$(cat $HOME/.cache/ebuilds/storepath)
-  export LC_ALL=C
   export CFLAGS="-g -ggdb3 -O0"
-  export EINA_LOG_BACKTRACE=999
 
   for I in $PROG_AT; do
     elap_start
