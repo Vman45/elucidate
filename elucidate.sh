@@ -49,21 +49,22 @@ RELEASE=$(lsb_release -sc)
 ICNV=libiconv-1.16
 
 # Build dependencies, recommended and script-related packages.
-DEPS="aspell build-essential ccache check cmake cowsay ddcutil ddd doxygen \
-faenza-icon-theme fonts-noto gstreamer1.0-libav gstreamer1.0-plugins-bad \
-gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly imagemagick libasound2-dev \
-libavahi-client-dev libblkid-dev libbluetooth-dev libegl1-mesa-dev libexif-dev \
-libfontconfig1-dev libdrm-dev libfreetype6-dev libfribidi-dev libgbm-dev \
-libgeoclue-2-dev libgif-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
-libharfbuzz-dev libi2c-dev libibus-1.0-dev libinput-dev libjpeg-dev libluajit-5.1-dev \
-liblz4-dev libmount-dev libopenjp2-7-dev libosmesa6-dev libpam0g-dev libpoppler-cpp-dev \
-libpoppler-dev libpoppler-private-dev libpulse-dev libraw-dev librsvg2-dev libscim-dev \
-libsndfile1-dev libspectre-dev libssl-dev libsystemd-dev libtiff5-dev libtool libudev-dev \
-libudisks2-dev libunibreak-dev libunwind-dev libwebp-dev libxcb-keysyms1-dev libxcursor-dev \
-libxinerama-dev libxkbcommon-x11-dev libxkbfile-dev libxrandr-dev libxss-dev libxtst-dev \
-linux-tools-common linux-tools-$(uname -r) lolcat manpages-dev manpages-posix-dev meson \
-mlocate ninja-build texlive-base unity-greeter-badges valgrind wayland-protocols \
-wmctrl xserver-xephyr xwayland zenity"
+DEPS="aspell build-essential ccache check cmake cowsay ddcutil doxygen faenza-icon-theme \
+fonts-noto gstreamer1.0-libav gstreamer1.0-plugins-bad gstreamer1.0-plugins-good \
+gstreamer1.0-plugins-ugly imagemagick libasound2-dev libavahi-client-dev \
+libblkid-dev libbluetooth-dev libegl1-mesa-dev libexif-dev libfontconfig1-dev \
+libdrm-dev libfreetype6-dev libfribidi-dev libgbm-dev libgeoclue-2-dev \
+libgif-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libharfbuzz-dev \
+libi2c-dev libibus-1.0-dev libinput-dev libjpeg-dev libluajit-5.1-dev \
+liblz4-dev libmount-dev libopenjp2-7-dev libosmesa6-dev libpam0g-dev \
+libpoppler-cpp-dev libpoppler-dev libpoppler-private-dev libpulse-dev \
+libraw-dev librsvg2-dev libscim-dev libsndfile1-dev libspectre-dev \
+libssl-dev libsystemd-dev libtiff5-dev libtool libudev-dev libudisks2-dev \
+libunibreak-dev libunwind-dev libwebp-dev libxcb-keysyms1-dev libxcursor-dev \
+libxinerama-dev libxkbcommon-x11-dev libxkbfile-dev libxrandr-dev libxss-dev \
+libxtst-dev lolcat manpages-dev manpages-posix-dev meson mlocate ninja-build \
+texlive-base unity-greeter-badges valgrind wayland-protocols wmctrl \
+xserver-xephyr xwayland zenity"
 
 # Latest development code.
 CLONEFL="git clone https://git.enlightenment.org/core/efl.git"
@@ -80,13 +81,6 @@ PROG_AT="enventor"
 
 # FUNCTIONS
 # ---------
-
-zen_debug() {
-  zenity --no-wrap --info --text "
-  Make sure Source Code is activated in software &amp; Updates
-  (you need a deb-src line in /etc/apt/sources.list for\n\
-  the main repository) before initiating the build.\n"
-}
 
 beep_attention() {
   paplay /usr/share/sounds/freedesktop/stereo/dialog-warning.oga
@@ -111,15 +105,13 @@ sel_menu() {
     printf "2. $BDG%s $OFF%s\n\n" "Update and REBUILD Enlightenment 24"
     printf "3. $BDG%s $OFF%s\n\n" "Update and rebuild E24 in RELEASE mode"
     printf "4. $BDY%s $OFF%s\n\n" "Update and rebuild E24 with WAYLAND support"
-    printf "5. $BDY%s $OFF%s\n\n" "Update and rebuild E24 for DEBUGGING purposes"
-    printf "6. $BDR%s $OFF%s\n\n" "UNINSTALL all Enlightenment 24 programs"
+    printf "5. $BDR%s $OFF%s\n\n" "UNINSTALL all Enlightenment 24 programs"
 
     # Hints.
     # 1/2: Plain build with well tested default values.
     # 3: A feature-rich, decently optimized build; however, occasionally technical glitches do happen...
     # 4: Same as above, but running Enlightenment as a Wayland compositor is still considered experimental.
-    # 5: Make sure E compositor is set to Software rendering (not OpenGL) and default theme is applied.
-    # 6: Nuke 'Em All!
+    # 5: Nuke 'Em All!
 
     sleep 1 && printf "$ITA%s $OFF%s\n\n" "Or press Ctrl+C to quit."
     read INPUT
@@ -478,83 +470,6 @@ rebuild_wld_at() {
   done
 }
 
-rebuild_debug_mn() {
-  export LC_ALL=C
-  export EINA_LOG_BACKTRACE=999
-
-  # Temporary tweaks until next reboot.
-  ulimit -c unlimited
-  echo "/var/crash/core.%e.%p.%h.%t" | sudo tee /proc/sys/kernel/core_pattern
-  echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-
-  ESRC=$(cat $HOME/.cache/ebuilds/storepath)
-  cd $ESRC
-  # You can safely ignore the "NOTICE" message...
-  [[ $(ls | grep glibc[-]) ]] || apt source glibc
-  rm -rf glibc_*
-  sudo updatedb
-
-  cd $ESRC/rlottie
-  printf "\n$BLD%s $OFF%s\n\n" "Updating rlottie..."
-  git reset --hard &>/dev/null
-  git pull
-  echo
-  sudo chown $USER build/.ninja*
-  meson configure -Dbuildtype=debug build
-  ninja -C build || true
-  $SNIN || true
-  sudo ldconfig
-
-  for I in $PROG_MN; do
-    cd $ESRC/e24/$I
-    printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
-    git reset --hard &>/dev/null
-    git pull
-
-    case $I in
-      efl)
-        sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=debug build
-        ninja -C build || mng_err
-        ;;
-      enlightenment)
-        sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=debug build
-        ninja -C build || mng_err
-        ;;
-      *)
-        sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=debug build
-        ninja -C build || true
-        ;;
-    esac
-
-    $SNIN || true
-    sudo ldconfig
-  done
-}
-
-rebuild_debug_at() {
-  export CFLAGS="-g -ggdb3 -O0"
-
-  for I in $PROG_AT; do
-    elap_start
-    cd $ESRC/e24/$I
-
-    printf "\n$BLD%s $OFF%s\n\n" "Updating $I..."
-    sudo make distclean &>/dev/null
-    git reset --hard &>/dev/null
-    git pull
-
-    $GEN
-    make || true
-    beep_attention
-    $SMIL || true
-    sudo ldconfig
-    elap_stop
-  done
-}
-
 do_tests() {
   if [ -x /usr/bin/wmctrl ]; then
     if [ "$XDG_SESSION_TYPE" == "x11" ]; then
@@ -815,53 +730,6 @@ wld_go() {
     cowsay -f www "That's it. Now type: enlightenment_start"
     echo
   fi
-}
-
-debug_go() {
-  clear
-  printf "\n$BDY%s $OFF%s\n\n" "* UPDATING ENLIGHTENMENT DESKTOP: DEBUG BUILD *"
-
-  cp -f $SCRFLR/elucidate.sh $HOME/.local/bin
-  chmod +x $HOME/.local/bin/elucidate.sh
-  sleep 1
-
-  beep_attention
-  zen_debug 2>/dev/null
-  bin_deps
-  rebuild_debug_mn
-  rebuild_debug_at
-  echo
-
-  # For serious debugging, please refer to the following documents.
-  # https://www.enlightenment.org/contrib/efl-debug
-  # https://www.enlightenment.org/contrib/enlightenment-debug
-  beep_question
-  read -t 12 -p "Do you want to test run Enlightenment in a nested window now? [Y/n] " answer
-  case $answer in
-    [yY])
-      printf "\n$BDY%s %s" "When you're done, log out of Enlightenment and close the Xephyr window."
-      printf "\n$BDY%s $OFF%s\n" "You may need to enter q to end the debugging session (quit gdb)."
-      sleep 6
-
-      # Run ./xdebug.sh --help for options (e.g. append "--dbg-mode=d" to the command below
-      # if you want to use DDD).
-      cd $ESRC/e24/enlightenment && ./xdebug.sh
-      printf "\n$BDY%s %s" "Please check /var/crash for core dumps,"
-      printf "\n$BDY%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home directory."
-      ;;
-    [nN])
-      printf "\n%s\n\n" "(do not run Enlightenment.. OK)"
-      ;;
-    *)
-      printf "\n$BDY%s %s" "When you're done, log out of Enlightenment and close the Xephyr window."
-      printf "\n$BDY%s $OFF%s\n" "You may need to enter q to end the debugging session (quit gdb)."
-      sleep 6
-
-      cd $ESRC/e24/enlightenment && ./xdebug.sh
-      printf "\n$BDY%s %s" "Please check /var/crash for core dumps,"
-      printf "\n$BDY%s $OFF%s\n\n" "and look for a file called .e-crashdump.txt in your home directory."
-      ;;
-  esac
 }
 
 remov_eprog_at() {
@@ -1226,8 +1094,6 @@ main() {
     do_tests
     wld_go
   elif [ $INPUT == 5 ]; then
-    debug_go
-  elif [ $INPUT == 6 ]; then
     uninstall_e24
   else
     beep_exit
