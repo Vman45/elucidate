@@ -12,7 +12,7 @@
 # Enlightenment programs installed from .deb packages or tarballs will inevitably conflict with
 # E24 programs compiled from Git repositories——do not mix source code with pre-built binaries!
 # Please remove thoroughly any previous installation of EFL/Enlightenment/EFL-based apps
-#(track down and delete any leftover files) before running ELUCIDATE.SH.
+# (track down and delete any leftover files) before running ELUCIDATE.SH.
 
 # Once installed, you can update your shiny new Enlightenment desktop whenever you want to.
 # However, because software gains entropy over time (performance regression, unexpected
