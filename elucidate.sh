@@ -764,7 +764,7 @@ remov_preq() {
         echo
         ;;
       [nN])
-        printf "\n%s\n\n" "(do not remove prerequisites... OK)"
+        printf "\n$ITA%s $OFF%s\n\n" "(do not remove prerequisites... OK)"
         ;;
       *)
         cd $ESRC/$ICNV || exit
@@ -1030,10 +1030,10 @@ uninstall_e24() {
         rm -rf $HOME/.ccache
         ;;
       [nN])
-        printf "\n%s\n\n" "(do not delete the ccache folder... OK)"
+        printf "\n$ITA%s $OFF%s\n\n" "(do not delete the ccache folder... OK)"
         ;;
       *)
-        printf "\n%s\n\n" "(do not delete the ccache folder... OK)"
+        printf "\n$ITA%s $OFF%s\n\n" "(do not delete the ccache folder... OK)"
         ;;
     esac
   fi
@@ -1048,7 +1048,7 @@ uninstall_e24() {
         sleep 1
         ;;
       [nN])
-        printf "\n%s\n\n" "(do not delete bash_aliases... OK)"
+        printf "\n$ITA%s $OFF%s\n\n" "(do not delete bash_aliases... OK)"
         sleep 1
         ;;
       *)
