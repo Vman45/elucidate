@@ -16,6 +16,18 @@
 # Subsequent runs.
 # Open Terminal and simply type elucidate.sh
 
+# Heads up!
+# Enlightenment programs installed from .deb packages or tarballs will inevitably conflict with
+# E24 programs compiled from Git repositories——do not mix source code with pre-built binaries!
+# Please remove thoroughly any previous installation of EFL/Enlightenment/EFL-based apps
+#(track down and delete any leftover files) before running ELUCIDATE.SH.
+
+# Once installed, you can update your shiny new Enlightenment desktop whenever you want to.
+# However, because software gains entropy over time (performance regression, unexpected
+# behavior... this is especially true when dealing with source code), we highly
+# recommend doing a complete uninstall and reinstall of E24 every three weeks
+# or so for an optimal user experience.
+
 # ELUCIDATE.SH is written and maintained by batden@sfr.fr and carlasensa@sfr.fr,
 # feel free to use this script as you see fit.
 
