@@ -32,6 +32,16 @@ On subsequent runs, open Terminal and simply type:
 elucidate.sh
 ```
 
+### Update local repository
+
+Be sure to check for updates at least once a week.
+
+In order to do this, change to ~/.elucidate/ and run:
+
+```bash
+git pull
+```
+
 That's it.
 
 Mind the cows! :cow2: :cow2: :cow2:
