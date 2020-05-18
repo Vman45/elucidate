@@ -6,15 +6,7 @@
 # along with other EFL-based apps, on Ubuntu Focal Fossa;
 # or will help you cleanly uninstall E24.
 
-# To execute the script:
-
-# First time.
-# Open Terminal and uncheck "Limit scrollback to" in Preferences (optional).
-# Change to the download folder and make the script executable,
-# then type ./elucidate.sh
-
-# Subsequent runs.
-# Open Terminal and simply type elucidate.sh
+# See README.md for instructions on how to use this script.
 
 # Heads up!
 # Enlightenment programs installed from .deb packages or tarballs will inevitably conflict with
