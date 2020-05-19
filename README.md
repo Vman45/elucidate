@@ -4,7 +4,7 @@ An easy-to-use, easy-to-edit Bash script to build and install Enlightenment 24 o
 
 ## Get started
 
-First, clone this repository:
+First, clone this repository (you need the git command installed):
 
 ```bash
 git clone https://github.com/batden/elucidate.git .elucidate
