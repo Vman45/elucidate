@@ -31,7 +31,7 @@ On subsequent runs, open Terminal and simply type:
 ```bash
 elucidate.sh
 ```
-(Use tab completion: Just type e*luc* and press Tab)
+(Use tab completion: Just type *eluc* and press Tab)
 
 ### Update local repository
 
