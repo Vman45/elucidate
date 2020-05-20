@@ -791,7 +791,7 @@ uninstall_e24() {
   ESRC=$(cat $HOME/.cache/ebuilds/storepath)
 
   clear
-  printf "\n\n$BDR%s %s\n\n" "* UNINSTALLING ENLIGHTENMENT DESKTOP *"
+  printf "\n\n$BDR%s $OFF%s\n\n" "* UNINSTALLING ENLIGHTENMENT DESKTOP *"
 
   cd $HOME || exit
 
