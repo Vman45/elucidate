@@ -531,7 +531,7 @@ do_bsh_alias() {
     export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 
     # Parallel build: It's your call...
-    #export MAKE="make -j$(($(getconf _NPROCESSORS_ONLN) * 2))"
+    #export MAKE="make -j$(($(nproc) * 2))"
 
     # This script adds the ~/.local/bin directory to your PATH environment variable if required.
 EOF
