@@ -499,7 +499,6 @@ do_tests() {
     exit 1
   fi
 
-  # Users of VirtualBox: Comment out the following lines if you get unexpected network errors.
   git ls-remote https://git.enlightenment.org/core/efl.git HEAD &>/dev/null
   if [ $? -ne 0 ]; then
     printf "\n$BDR%s %s\n" "REMOTE HOST IS UNREACHABLE——TRY AGAIN LATER"
