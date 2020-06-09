@@ -758,7 +758,7 @@ remov_preq() {
   if [ -d $ESRC/rlottie ]; then
     echo
     beep_question
-    read -t 12 -p "Remove libiconv and rlottie? [Y/n] " answer
+    read -t 12 -p "Remove libiconv, libwebp and rlottie? [Y/n] " answer
     case $answer in
       [yY])
         echo
@@ -767,6 +767,13 @@ remov_preq() {
         make maintainer-clean &>/dev/null
         cd .. && rm -rf $ESRC/$ICNV
         sudo rm -rf /usr/local/bin/iconv
+        echo
+
+        cd $ESRC/$LWEB || exit
+        sudo make uninstall &>/dev/null
+        make maintainer-clean &>/dev/null
+        cd .. && rm -rf $ESRC/$LWEB
+        #sudo rm -rf /usr/local/bin/cwebp
         echo
 
         cd $ESRC/rlottie || exit
@@ -783,6 +790,13 @@ remov_preq() {
         make maintainer-clean &>/dev/null
         cd .. && rm -rf $ESRC/$ICNV
         sudo rm -rf /usr/local/bin/iconv
+
+        cd $ESRC/$LWEB || exit
+        sudo make uninstall &>/dev/null
+        make maintainer-clean &>/dev/null
+        cd .. && rm -rf $ESRC/$LWEB
+        #sudo rm -rf /usr/local/bin/cwebp
+        echo
 
         echo
         cd $ESRC/rlottie || exit
