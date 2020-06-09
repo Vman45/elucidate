@@ -352,7 +352,7 @@ rebuild_optim_mn() {
       efl)
         sudo chown $USER build/.ninja*
         meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
-          -Delua=true -Dbindings=luajit,cxx -Dbuild-tests=false \
+          -Delua=true -Dbindings=lua,cxx -Dbuild-tests=false \
           -Dbuild-examples=false -Dbuildtype=release build
         ninja -C build || mng_err
         ;;
@@ -427,7 +427,7 @@ rebuild_wld_mn() {
       efl)
         sudo chown $USER build/.ninja*
         meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
-          -Delua=true -Dbindings=luajit,cxx -Ddrm=true -Dwl=true -Dopengl=es-egl \
+          -Delua=true -Dbindings=lua,cxx -Ddrm=true -Dwl=true -Dopengl=es-egl \
           -Dbuild-tests=false -Dbuild-examples=false -Dbuildtype=release build
         ninja -C build || mng_err
         ;;
