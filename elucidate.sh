@@ -1004,6 +1004,10 @@ uninstall_e24() {
   sudo rm -rf elementary*
   sudo rm -rf terminology*
 
+  cd /usr/local/share/icons/hicolor/128x128/apps || exit
+  sudo rm -rf evisum.png
+  sudo rm -rf terminology.png
+
   cd /usr/share/dbus-1/services || exit
   sudo rm -rf org.enlightenment.Ethumb.service
 
