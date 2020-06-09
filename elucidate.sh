@@ -816,7 +816,7 @@ uninstall_e24() {
   clear
   printf "\n\n$BDR%s $OFF%s\n\n" "* UNINSTALLING ENLIGHTENMENT DESKTOP *"
 
-  cd $HOME || exit
+  cd $HOME
 
   for I in $PROG_AT; do
     cd $ESRC/e24/$I && remov_eprog_at
