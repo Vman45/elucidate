@@ -859,6 +859,7 @@ uninstall_e24() {
   cd /usr/local/include || exit
   sudo rm -rf -- *-1
   sudo rm -rf enlightenment
+  sudo rm -rf webp*
 
   cd /usr/local/lib || exit
   sudo rm -rf ecore*
