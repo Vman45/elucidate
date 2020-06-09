@@ -564,7 +564,7 @@ get_preq() {
 
   cd $DLDIR
   wget -c https://storage.googleapis.com/downloads.webmproject.org/releases/webp/$LWEB.tar.gz
-  tar xzvf $LWEB.tar.gz -C $LWEB
+  tar xzvf $LWEB.tar.gz -C $ESRC
   cd $ESRC/$LWEB
   $CONFG
   make
