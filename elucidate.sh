@@ -48,6 +48,7 @@ SNIN="sudo ninja -C build install"
 SMIL="sudo make install"
 RELEASE=$(lsb_release -sc)
 ICNV=libiconv-1.16
+LWEB=libwebp-1.1.0
 
 # Build dependencies, recommended and script-related packages.
 DEPS="aspell build-essential ccache check cmake cowsay ddcutil doxygen faenza-icon-theme \
@@ -61,7 +62,7 @@ liblz4-dev libmount-dev libopenjp2-7-dev libosmesa6-dev libpam0g-dev \
 libpoppler-cpp-dev libpoppler-dev libpoppler-private-dev libpulse-dev \
 libraw-dev librsvg2-dev libscim-dev libsndfile1-dev libspectre-dev \
 libssl-dev libsystemd-dev libtiff5-dev libtool libudev-dev libudisks2-dev \
-libunibreak-dev libunwind-dev libwebp-dev libxcb-keysyms1-dev libxcursor-dev \
+libunibreak-dev libunwind-dev libxcb-keysyms1-dev libxcursor-dev \
 libxinerama-dev libxkbcommon-x11-dev libxkbfile-dev libxrandr-dev libxss-dev \
 libxtst-dev lolcat manpages-dev manpages-posix-dev meson mlocate ninja-build \
 texlive-base unity-greeter-badges valgrind wayland-protocols wmctrl \
@@ -559,6 +560,17 @@ get_preq() {
   sudo make install
   sudo ldconfig
   rm -rf $DLDIR/$ICNV.tar.gz
+  echo
+
+  cd $DLDIR
+  wget -c https://storage.googleapis.com/downloads.webmproject.org/releases/webp/$LWEB.tar.gz
+  tar xzvf $LWEB.tar.gz -C $LWEB
+  cd $ESRC/$LWEB
+  $CONFG
+  make
+  sudo make install
+  sudo ldconfig
+  rm -rf $DLDIR/$LWEB.tar.gz
   echo
 
   cd $ESRC
