@@ -773,7 +773,8 @@ remov_preq() {
         sudo make uninstall &>/dev/null
         make maintainer-clean &>/dev/null
         cd .. && rm -rf $ESRC/$LWEB
-        #sudo rm -rf /usr/local/bin/cwebp
+        sudo rm -rf /usr/local/bin/cwebp
+        sudo rm -rf /usr/local/bin/dwebp
         echo
 
         cd $ESRC/rlottie || exit
@@ -795,7 +796,8 @@ remov_preq() {
         sudo make uninstall &>/dev/null
         make maintainer-clean &>/dev/null
         cd .. && rm -rf $ESRC/$LWEB
-        #sudo rm -rf /usr/local/bin/cwebp
+        sudo rm -rf /usr/local/bin/cwebp
+        sudo rm -rf /usr/local/bin/dwebp
         echo
 
         echo
