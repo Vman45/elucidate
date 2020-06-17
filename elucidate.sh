@@ -28,6 +28,7 @@
 # Eyecandy for your enlightened desktop: https://extra.enlightenment.org/themes/
 # Screenshots: https://www.enlightenment.org/ss/
 
+# ---------------
 # LOCAL VARIABLES
 # ---------------
 
@@ -81,6 +82,7 @@ CLONEVE="git clone https://git.enlightenment.org/tools/enventor.git"
 PROG_MN="efl terminology enlightenment ephoto evisum rage"
 PROG_AT="enventor"
 
+# ---------
 # FUNCTIONS
 # ---------
 
@@ -515,6 +517,7 @@ do_bsh_alias() {
     touch $HOME/.bash_aliases
 
     cat >$HOME/.bash_aliases <<EOF
+    # ----------------
     # GLOBAL VARIABLES
     # ----------------
 
