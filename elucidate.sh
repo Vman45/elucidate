@@ -13,9 +13,9 @@
 
 # Once installed, you can update your shiny new Enlightenment desktop whenever you want to.
 # However, because software gains entropy over time (performance regression, unexpected
-# behavior... this is especially true when dealing with source code), we highly
-# recommend doing a complete uninstall and reinstall of E24 every three weeks
-# or so for an optimal user experience.
+# behavior... this is especially true when dealing directly with source code), we
+# highly recommend doing a complete uninstall and reinstall of E24 every three
+# weeks or so for an optimal user experience.
 
 # ELUCIDATE.SH is written and maintained by batden@sfr.fr and carlasensa@sfr.fr,
 # feel free to use this script as you see fit.
