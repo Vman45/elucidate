@@ -201,15 +201,15 @@ e_tokens() {
     beep_question
     read -t 12 -p "Do you want to back up your E24 settings now? [y/N] " answer
     case $answer in
-      [yY])
-        e_bkp
-        ;;
-      [nN])
-        printf "\n$ITA%s $OFF%s\n\n" "(do not back up my user settings and themes folders... OK)"
-        ;;
-      *)
-        printf "\n$ITA%s $OFF%s\n\n" "(do not back up my user settings and themes folders... OK)"
-        ;;
+    [yY])
+      e_bkp
+      ;;
+    [nN])
+      printf "\n$ITA%s $OFF%s\n\n" "(do not back up my user settings and themes folders... OK)"
+      ;;
+    *)
+      printf "\n$ITA%s $OFF%s\n\n" "(do not back up my user settings and themes folders... OK)"
+      ;;
     esac
   fi
 }
@@ -225,18 +225,18 @@ build_plain() {
     printf "\n$BLD%s $OFF%s\n\n" "Building $I..."
 
     case $I in
-      efl)
-        meson build
-        ninja -C build || mng_err
-        ;;
-      enlightenment)
-        meson build
-        ninja -C build || mng_err
-        ;;
-      *)
-        meson build
-        ninja -C build || true
-        ;;
+    efl)
+      meson build
+      ninja -C build || mng_err
+      ;;
+    enlightenment)
+      meson build
+      ninja -C build || mng_err
+      ;;
+    *)
+      meson build
+      ninja -C build || true
+      ;;
     esac
 
     beep_attention
@@ -284,18 +284,18 @@ rebuild_plain() {
     echo
 
     case $I in
-      efl)
-        meson build
-        ninja -C build || mng_err
-        ;;
-      enlightenment)
-        meson build
-        ninja -C build || mng_err
-        ;;
-      *)
-        meson build
-        ninja -C build || true
-        ;;
+    efl)
+      meson build
+      ninja -C build || mng_err
+      ;;
+    enlightenment)
+      meson build
+      ninja -C build || mng_err
+      ;;
+    *)
+      meson build
+      ninja -C build || true
+      ;;
     esac
 
     beep_attention
@@ -351,23 +351,23 @@ rebuild_optim_mn() {
     git pull
 
     case $I in
-      efl)
-        sudo chown $USER build/.ninja*
-        meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
-          -Dbindings=cxx -Dbuild-tests=false -Dbuild-examples=false \
-          -Dbuildtype=release build
-        ninja -C build || mng_err
-        ;;
-      enlightenment)
-        sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=release build
-        ninja -C build || mng_err
-        ;;
-      *)
-        sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=release build
-        ninja -C build || true
-        ;;
+    efl)
+      sudo chown $USER build/.ninja*
+      meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
+        -Dbindings=cxx -Dbuild-tests=false -Dbuild-examples=false \
+        -Dbuildtype=release build
+      ninja -C build || mng_err
+      ;;
+    enlightenment)
+      sudo chown $USER build/.ninja*
+      meson configure -Dbuildtype=release build
+      ninja -C build || mng_err
+      ;;
+    *)
+      sudo chown $USER build/.ninja*
+      meson configure -Dbuildtype=release build
+      ninja -C build || true
+      ;;
     esac
 
     $SNIN || true
@@ -426,24 +426,24 @@ rebuild_wld_mn() {
     git pull
 
     case $I in
-      efl)
-        sudo chown $USER build/.ninja*
-        meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
-          -Dbindings=cxx -Ddrm=true -Dwl=true -Dopengl=es-egl \
-          -Dbuild-tests=false -Dbuild-examples=false \
-          -Dbuildtype=release build
-        ninja -C build || mng_err
-        ;;
-      enlightenment)
-        sudo chown $USER build/.ninja*
-        meson configure -Dwl=true -Dbuildtype=release build
-        ninja -C build || mng_err
-        ;;
-      *)
-        sudo chown $USER build/.ninja*
-        meson configure -Dbuildtype=release build
-        ninja -C build || true
-        ;;
+    efl)
+      sudo chown $USER build/.ninja*
+      meson configure -Dnative-arch-optimization=true -Dfb=true -Dharfbuzz=true \
+        -Dbindings=cxx -Ddrm=true -Dwl=true -Dopengl=es-egl \
+        -Dbuild-tests=false -Dbuild-examples=false \
+        -Dbuildtype=release build
+      ninja -C build || mng_err
+      ;;
+    enlightenment)
+      sudo chown $USER build/.ninja*
+      meson configure -Dwl=true -Dbuildtype=release build
+      ninja -C build || mng_err
+      ;;
+    *)
+      sudo chown $USER build/.ninja*
+      meson configure -Dbuildtype=release build
+      ninja -C build || true
+      ;;
     esac
 
     $SNIN || true
@@ -764,52 +764,52 @@ remov_preq() {
     beep_question
     read -t 12 -p "Remove libiconv, libwebp and rlottie? [Y/n] " answer
     case $answer in
-      [yY])
-        echo
-        cd $ESRC/$ICNV || exit
-        sudo make uninstall &>/dev/null
-        make maintainer-clean &>/dev/null
-        cd .. && rm -rf $ESRC/$ICNV
-        sudo rm -rf /usr/local/bin/iconv
-        echo
+    [yY])
+      echo
+      cd $ESRC/$ICNV || exit
+      sudo make uninstall &>/dev/null
+      make maintainer-clean &>/dev/null
+      cd .. && rm -rf $ESRC/$ICNV
+      sudo rm -rf /usr/local/bin/iconv
+      echo
 
-        cd $ESRC/$LWEB || exit
-        sudo make uninstall &>/dev/null
-        make maintainer-clean &>/dev/null
-        cd .. && rm -rf $ESRC/$LWEB
-        sudo rm -rf /usr/local/bin/cwebp
-        sudo rm -rf /usr/local/bin/dwebp
-        echo
+      cd $ESRC/$LWEB || exit
+      sudo make uninstall &>/dev/null
+      make maintainer-clean &>/dev/null
+      cd .. && rm -rf $ESRC/$LWEB
+      sudo rm -rf /usr/local/bin/cwebp
+      sudo rm -rf /usr/local/bin/dwebp
+      echo
 
-        cd $ESRC/rlottie || exit
-        sudo ninja -C build uninstall &>/dev/null
-        cd .. && rm -rf rlottie
-        echo
-        ;;
-      [nN])
-        printf "\n$ITA%s $OFF%s\n\n" "(do not remove prerequisites... OK)"
-        ;;
-      *)
-        cd $ESRC/$ICNV || exit
-        sudo make uninstall &>/dev/null
-        make maintainer-clean &>/dev/null
-        cd .. && rm -rf $ESRC/$ICNV
-        sudo rm -rf /usr/local/bin/iconv
+      cd $ESRC/rlottie || exit
+      sudo ninja -C build uninstall &>/dev/null
+      cd .. && rm -rf rlottie
+      echo
+      ;;
+    [nN])
+      printf "\n$ITA%s $OFF%s\n\n" "(do not remove prerequisites... OK)"
+      ;;
+    *)
+      cd $ESRC/$ICNV || exit
+      sudo make uninstall &>/dev/null
+      make maintainer-clean &>/dev/null
+      cd .. && rm -rf $ESRC/$ICNV
+      sudo rm -rf /usr/local/bin/iconv
 
-        cd $ESRC/$LWEB || exit
-        sudo make uninstall &>/dev/null
-        make maintainer-clean &>/dev/null
-        cd .. && rm -rf $ESRC/$LWEB
-        sudo rm -rf /usr/local/bin/cwebp
-        sudo rm -rf /usr/local/bin/dwebp
-        echo
+      cd $ESRC/$LWEB || exit
+      sudo make uninstall &>/dev/null
+      make maintainer-clean &>/dev/null
+      cd .. && rm -rf $ESRC/$LWEB
+      sudo rm -rf /usr/local/bin/cwebp
+      sudo rm -rf /usr/local/bin/dwebp
+      echo
 
-        echo
-        cd $ESRC/rlottie || exit
-        sudo ninja -C build uninstall &>/dev/null
-        cd .. && rm -rf rlottie
-        echo
-        ;;
+      echo
+      cd $ESRC/rlottie || exit
+      sudo ninja -C build uninstall &>/dev/null
+      cd .. && rm -rf rlottie
+      echo
+      ;;
     esac
   fi
 }
@@ -1061,16 +1061,16 @@ uninstall_e24() {
     beep_question
     read -t 12 -p "Remove the ccache folder? [y/N] " answer
     case $answer in
-      [yY])
-        ccache -C
-        rm -rf $HOME/.ccache
-        ;;
-      [nN])
-        printf "\n$ITA%s $OFF%s\n\n" "(do not delete the ccache folder... OK)"
-        ;;
-      *)
-        printf "\n$ITA%s $OFF%s\n\n" "(do not delete the ccache folder... OK)"
-        ;;
+    [yY])
+      ccache -C
+      rm -rf $HOME/.ccache
+      ;;
+    [nN])
+      printf "\n$ITA%s $OFF%s\n\n" "(do not delete the ccache folder... OK)"
+      ;;
+    *)
+      printf "\n$ITA%s $OFF%s\n\n" "(do not delete the ccache folder... OK)"
+      ;;
     esac
   fi
 
@@ -1079,25 +1079,25 @@ uninstall_e24() {
     beep_question
     read -t 12 -p "Remove the bash_aliases file? [Y/n] " answer
     case $answer in
-      [yY])
-        rm -rf $HOME/.bash_aliases && source $HOME/.bashrc
-        sleep 1
-        ;;
-      [nN])
-        printf "\n$ITA%s $OFF%s\n\n" "(do not delete bash_aliases... OK)"
-        sleep 1
-        ;;
-      *)
-        echo
-        rm -rf $HOME/.bash_aliases && source $HOME/.bashrc
-        sleep 1
-        ;;
+    [yY])
+      rm -rf $HOME/.bash_aliases && source $HOME/.bashrc
+      sleep 1
+      ;;
+    [nN])
+      printf "\n$ITA%s $OFF%s\n\n" "(do not delete bash_aliases... OK)"
+      sleep 1
+      ;;
+    *)
+      echo
+      rm -rf $HOME/.bash_aliases && source $HOME/.bashrc
+      sleep 1
+      ;;
     esac
   fi
 
   find /usr/local/share/locale/*/LC_MESSAGES 2>/dev/null | while read -r I; do
-    echo "$I" \
-      | xargs sudo rm -rf $(grep -E 'efl|enlightenment|enventor|ephoto|evisum|libiconv|terminology')
+    echo "$I" |
+      xargs sudo rm -rf $(grep -E 'efl|enlightenment|enventor|ephoto|evisum|libiconv|terminology')
   done
 
   sudo rm -rf /usr/lib/libintl.so
