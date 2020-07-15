@@ -12,7 +12,7 @@ git clone https://github.com/batden/elucidate.git .elucidate
 
 This creates a new hidden folder named ".elucidate" in your home directory.
 
-Copy the file "elucidate.sh" from this new folder to the download folder.
+Please copy the file "elucidate.sh" from this new folder to the download folder.
 
 Now change to the download folder and make the script executable:
 
@@ -35,9 +35,7 @@ elucidate.sh
 
 ### Update local repository
 
-Be sure to check for updates at least once a week.
-
-In order to do this, change to ~/.elucidate/ and run:
+Change to ~/.elucidate/ and run:
 
 ```bash
 git pull
