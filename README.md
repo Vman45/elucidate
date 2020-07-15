@@ -35,7 +35,8 @@ elucidate.sh
 
 ### Update local repository
 
-Change to ~/.elucidate/ and run:
+Be sure to check for updates at least once a week.
+In order to do this,change to ~/.elucidate/ and run:
 
 ```bash
 git pull
